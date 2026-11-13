@@ -1,0 +1,2744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UR Strategic Plan 2025–2030 | iURDAS Executive M&E Portal</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Chart.js for Executive Analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #090C15;
+      color: #F8FAFC;
+    }
+    /* Custom Scrollbar for Dark Executive Theme */
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track { background: #0B101E; }
+    ::-webkit-scrollbar-thumb { background: #2A3454; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3E4D7A; }
+
+    /* Power BI Card & Slicer Aesthetic */
+    .pbi-card {
+      background-color: #151A2C;
+      border: 1px solid #26304D;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    }
+    .pbi-tile {
+      background-color: #161C2E;
+      border: 1px solid #3B4666;
+      border-radius: 6px;
+      transition: all 0.18s ease;
+    }
+    .pbi-tile:hover {
+      border-color: #38BDF8;
+      background-color: #1D253C;
+    }
+    .pbi-tile.active {
+      background-color: #004C8C;
+      border-color: #38BDF8;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+    }
+    .pbi-slicer {
+      background-color: #121726;
+      border: 1px solid #3A4463;
+      border-radius: 5px;
+      color: #E2E8F0;
+    }
+    .pbi-slicer:focus {
+      outline: none;
+      border-color: #38BDF8;
+    }
+    .left-rail-item {
+      border-left: 3px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .left-rail-item:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+    .left-rail-item.active {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-left-color: #38BDF8;
+      font-weight: 700;
+    }
+
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #FFFFFF !important; color: #0F172A !important; }
+      .pbi-card { background: #FFFFFF !important; border: 1px solid #CBD5E1 !important; color: #0F172A !important; box-shadow: none !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-[#0078D4] selection:text-white">
+
+  <!-- ===================================================================== -->
+  <!-- INSTITUTIONAL RBAC AUTHENTICATION GATE OVERLAY                        -->
+  <!-- ===================================================================== -->
+  <div id="authGateOverlay" class="fixed inset-0 z-50 bg-[#050811]/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-[#151A2C] rounded-2xl max-w-2xl w-full shadow-2xl border border-[#3B4666] overflow-hidden my-auto">
+      <!-- Top Executive Banner with Original UR Emblem -->
+      <div class="bg-gradient-to-r from-[#003A6B] via-[#004C8C] to-[#0B101E] text-white p-6 flex items-center gap-4 border-b border-[#2E3A59]">
+        <!-- Original Circular UR Seal SVG (White rim, curved UNIVERSITY of RWANDA, braided rope ring, multi-striped interlocking UR) -->
+        <div class="flex-shrink-0">
+          <svg width="76" height="76" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-label="Official University of Rwanda Emblem">
+            <defs>
+              <path id="gateTopArc" d="M 24,110 A 86,86 0 1,1 196,110" />
+            </defs>
+            <!-- Outer Crisp White Circular Badge with Deep Teal Ring -->
+            <circle cx="110" cy="110" r="106" fill="#FFFFFF" stroke="#185A73" stroke-width="3.5"/>
+            <!-- Curved Top Title -->
+            <text fill="#185A73" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="14.2" letter-spacing="2.3">
+              <textPath href="#gateTopArc" startOffset="50%" text-anchor="middle">UNIVERSITY of RWANDA</textPath>
+            </text>
+            <!-- Inner Deep Teal Disc -->
+            <circle cx="110" cy="110" r="73" fill="#185A73"/>
+            <!-- Twisted / Braided Rope Ring -->
+            <circle cx="110" cy="110" r="78" fill="none" stroke="#185A73" stroke-width="5.5" stroke-dasharray="6,4.5"/>
+            <circle cx="110" cy="110" r="75.5" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="4.5,6"/>
+            <!-- Multi-Striped Interlocking 'U' -->
+            <g fill="none" stroke="#FFFFFF" stroke-linecap="square">
+              <path d="M 60,78 L 60,120 C 60,136 70,145 84,145 C 98,145 107,136 107,120 L 107,78" stroke-width="11"/>
+              <path d="M 60,78 L 60,120 C 60,136 70,145 84,145 C 98,145 107,136 107,120 L 107,78" stroke="#185A73" stroke-width="5.5"/>
+              <path d="M 60,78 L 60,120 C 60,136 70,145 84,145 C 98,145 107,136 107,120 L 107,78" stroke="#FFFFFF" stroke-width="2"/>
+            </g>
+            <!-- Multi-Striped Interlocking 'R' -->
+            <g fill="none" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="miter">
+              <path d="M 91,62 L 91,148 M 85,62 L 126,62 C 144,62 154,72 154,86 C 154,99 144,108 126,108 L 94,108 M 120,108 L 154,148" stroke-width="11"/>
+              <path d="M 91,62 L 91,148 M 85,62 L 126,62 C 144,62 154,72 154,86 C 154,99 144,108 126,108 L 94,108 M 120,108 L 154,148" stroke="#185A73" stroke-width="5.5"/>
+              <path d="M 91,62 L 91,148 M 85,62 L 126,62 C 144,62 154,72 154,86 C 154,99 144,108 126,108 L 94,108 M 120,108 L 154,148" stroke="#FFFFFF" stroke-width="2"/>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <span class="px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider bg-[#0078D4] text-white rounded">
+            iURDAS Executive Reports • Law No. 053/2024
+          </span>
+          <h2 class="text-lg sm:text-xl font-extrabold mt-1 text-white">UR Strategic Plan 2025–2030 M&amp;E Portal</h2>
+          <p class="text-xs text-sky-200">Central Data Repository &amp; Institutional Accountability Gateway</p>
+        </div>
+      </div>
+
+      <div class="p-6 space-y-5">
+        <div class="bg-[#0E1322] border border-[#2A3555] rounded-xl p-3.5 text-xs text-slate-300">
+          <i class="fa-solid fa-shield-halved text-[#38BDF8] mr-1.5"></i>
+          <strong class="text-white">Governance Security Protocol (M&amp;E Sec. 2.5 &amp; 5.2):</strong> Authenticate with your institutional RBAC passcode, or select a 1-click role tier below.
+        </div>
+
+        <!-- Standard Passcode Login Form -->
+        <form onsubmit="authenticateWithPasscode(event)" class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-end">
+          <div class="sm:col-span-5">
+            <label class="block text-xs font-bold text-slate-300 mb-1">Institutional Role Tier</label>
+            <select id="loginRoleSelect" onchange="prefillPasscodeHint()" class="w-full pbi-slicer px-3 py-2 text-xs font-semibold">
+              <option value="planner">Tier 1: Planners &amp; M&amp;E Unit (Custodians)</option>
+              <option value="management">Tier 2: University Management (VC/DVCs/Principals)</option>
+              <option value="board">Tier 3: Board of Governors / Partners (Read-Only)</option>
+            </select>
+          </div>
+          <div class="sm:col-span-4">
+            <label class="block text-xs font-bold text-slate-300 mb-1">Access Passcode</label>
+            <input type="password" id="loginPasscodeInput" placeholder="e.g. UR-PLAN-2026" required class="w-full pbi-slicer px-3 py-2 text-xs font-bold" />
+          </div>
+          <div class="sm:col-span-3">
+            <button type="submit" class="w-full bg-[#0078D4] hover:bg-[#0063B1] text-white font-bold text-xs py-2.5 px-4 rounded-lg shadow transition cursor-pointer">
+              <i class="fa-solid fa-right-to-bracket mr-1"></i>Authenticate
+            </button>
+          </div>
+        </form>
+        <div id="loginErrorMsg" class="hidden text-xs font-semibold text-rose-300 bg-rose-950/70 border border-rose-700 rounded-lg px-3 py-2"></div>
+
+        <!-- 3-Tier Quick-Access Cards -->
+        <div class="pt-3 border-t border-[#2A3555]">
+          <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2.5">Quick-Select Authenticated Role (Demo Credentials)</div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+            
+            <!-- Tier 1: Planners -->
+            <div class="border border-[#2E3B5E] hover:border-[#38BDF8] rounded-xl p-3.5 bg-[#0E1322] flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="px-2 py-0.5 rounded bg-[#0078D4] text-white font-bold text-[10px]">TIER 1 • CUSTODIAN</span>
+                  <code class="text-[10px] font-mono text-sky-300">UR-PLAN-2026</code>
+                </div>
+                <h4 class="font-bold text-white mt-2">Planners &amp; M&amp;E Unit</h4>
+                <p class="text-[11px] text-slate-400 mt-1">Full Read/Write: Submit KPI actuals, College AOP returns, update projects &amp; lock windows.</p>
+              </div>
+              <button onclick="quickLogin('planner')" class="mt-3 w-full py-1.5 px-3 rounded-lg bg-[#0078D4] hover:bg-[#0063B1] text-white font-bold text-[11px] transition cursor-pointer">
+                Enter as M&amp;E Custodian
+              </button>
+            </div>
+
+            <!-- Tier 2: University Management -->
+            <div class="border border-[#2E3B5E] hover:border-amber-400 rounded-xl p-3.5 bg-[#0E1322] flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-bold text-[10px]">TIER 2 • EXECUTIVE</span>
+                  <code class="text-[10px] font-mono text-amber-300">UR-MGMT-2026</code>
+                </div>
+                <h4 class="font-bold text-white mt-2">University Management</h4>
+                <p class="text-[11px] text-slate-400 mt-1">Review &amp; Approve: Verify pending KPI entries, endorse College returns &amp; issue directives.</p>
+              </div>
+              <button onclick="quickLogin('management')" class="mt-3 w-full py-1.5 px-3 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-[11px] transition cursor-pointer">
+                Enter as VC / DVC / Principal
+              </button>
+            </div>
+
+            <!-- Tier 3: Board / Public -->
+            <div class="border border-[#2E3B5E] hover:border-slate-400 rounded-xl p-3.5 bg-[#0E1322] flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="px-2 py-0.5 rounded bg-slate-700 text-white font-bold text-[10px]">TIER 3 • READ-ONLY</span>
+                  <code class="text-[10px] font-mono text-slate-400">UR-BOARD-2026</code>
+                </div>
+                <h4 class="font-bold text-white mt-2">Board &amp; Partners</h4>
+                <p class="text-[11px] text-slate-400 mt-1">Strict Read-Only Oversight: Inspect verified KPIs, trajectory charts &amp; audit trails.</p>
+              </div>
+              <button onclick="quickLogin('board')" class="mt-3 w-full py-1.5 px-3 rounded-lg bg-slate-700 hover:bg-slate-600 text-white font-bold text-[11px] transition cursor-pointer">
+                Enter Read-Only View
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- TOP POWER BI SERVICE BAR (iURDAS / UR_Central_Data_Repository_Dash)   -->
+  <!-- ===================================================================== -->
+  <header class="bg-[#0B101E] border-b border-[#232D4B] text-xs no-print">
+    <!-- Top Workspace Title & Search Bar -->
+    <div class="px-4 py-2 flex flex-wrap items-center justify-between gap-3 border-b border-[#1E2742]">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#18223C] text-sky-300 font-bold border border-[#2D3B63]">
+          <i class="fa-solid fa-chart-simple text-amber-400"></i>
+          <span>UR_Strategic_Plan_2025_2030_Dashboard</span>
+        </span>
+        <span class="text-slate-400 hidden sm:inline">Data updated <strong class="text-slate-200">11/13/26</strong></span>
+        <span id="windowStatusBadge" class="px-2 py-0.5 text-[11px] font-bold rounded bg-emerald-950/80 text-emerald-300 border border-emerald-700/60">
+          <i class="fa-solid fa-lock-open mr-1"></i>Reporting Window: OPEN
+        </span>
+      </div>
+
+      <!-- Center Search Input -->
+      <div class="relative hidden lg:block w-80">
+        <i class="fa-solid fa-magnifying-glass text-slate-400 absolute left-3 top-2"></i>
+        <input type="text" id="globalHeaderSearch" oninput="syncGlobalSearch()" placeholder="Search KPI ID, indicator, college, owner..." class="w-full bg-[#151C30] border border-[#2D3A5E] rounded-md pl-8 pr-3 py-1 text-xs text-slate-100 placeholder-slate-400 focus:outline-none focus:border-[#38BDF8]" />
+      </div>
+
+      <!-- Right Role Badge & Action Controls -->
+      <div class="flex flex-wrap items-center gap-2">
+        <!-- Authenticated Role Pill -->
+        <div onclick="openAuthGate()" class="bg-[#151D33] hover:bg-[#1E2947] border border-[#38BDF8]/50 rounded-md px-2.5 py-1 cursor-pointer transition flex items-center gap-2" title="Click to switch RBAC role">
+          <span id="activeTierLabel" class="px-1.5 py-0.5 rounded bg-[#0078D4] text-white font-extrabold text-[10px]">TIER 1</span>
+          <span id="activeUserLabel" class="font-semibold text-slate-200 truncate max-w-[170px]">M&amp;E Custodian</span>
+          <i class="fa-solid fa-repeat text-sky-400 text-[10px]"></i>
+        </div>
+
+        <!-- Tier 1 Custodian Action -->
+        <button id="headerSubmitKpiBtn" onclick="openKpiModal()" class="inline-flex items-center gap-1.5 bg-[#0078D4] hover:bg-[#0063B1] text-white font-bold px-3 py-1.5 rounded-md shadow transition cursor-pointer">
+          <i class="fa-solid fa-pen-to-square"></i>
+          <span>Submit KPI Update</span>
+        </button>
+
+        <!-- Tier 1 Custodian Sync Hub Button -->
+        <button id="headerSyncHubBtn" onclick="openSyncHubModal()" class="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3 py-1.5 rounded-md shadow transition cursor-pointer" title="Export or Merge College/HQ Quarterly JSON Returns">
+          <i class="fa-solid fa-code-merge"></i>
+          <span>Custodian JSON Sync</span>
+        </button>
+
+        <!-- Tier 2 Management Action -->
+        <button id="headerPendingReviewBtn" onclick="jumpToPendingApprovals()" class="hidden inline-flex items-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold px-3 py-1.5 rounded-md shadow transition cursor-pointer">
+          <i class="fa-solid fa-clipboard-check"></i>
+          <span>Pending Approvals (<span id="pendingCountBadge">0</span>)</span>
+        </button>
+
+        <!-- Tier 3 Read-Only Indicator -->
+        <div id="headerReadOnlyBadge" class="hidden inline-flex items-center gap-1.5 bg-[#1A2238] text-sky-300 border border-[#334166] font-bold px-2.5 py-1.5 rounded-md">
+          <i class="fa-solid fa-lock text-amber-400"></i>
+          <span>Read-Only View</span>
+        </div>
+
+        <button onclick="exportToCSV()" class="inline-flex items-center gap-1.5 bg-[#161E33] hover:bg-[#222D4A] text-slate-200 border border-[#2F3C61] font-medium px-2.5 py-1.5 rounded-md transition cursor-pointer" title="Export CSV">
+          <i class="fa-solid fa-file-export text-sky-400"></i>
+          <span class="hidden sm:inline">Export</span>
+        </button>
+
+        <button onclick="window.print()" class="inline-flex items-center gap-1.5 bg-[#161E33] hover:bg-[#222D4A] text-slate-200 border border-[#2F3C61] font-medium px-2.5 py-1.5 rounded-md transition cursor-pointer" title="Print Report">
+          <i class="fa-solid fa-print text-slate-300"></i>
+          <span class="hidden sm:inline">Print</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Secondary Action Toolbar (Matches Power BI File / Share / Export / Role Switcher) -->
+    <div class="px-4 py-1.5 bg-[#0F1526] flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-300">
+      <div class="flex flex-wrap items-center gap-4">
+        <span class="font-semibold text-sky-400"><i class="fa-solid fa-shield-halved mr-1"></i>Law No. 053/2024 Governance</span>
+        <span class="hidden md:inline text-slate-400">|</span>
+        <span id="roleBannerText" class="hidden md:inline text-slate-300">Custodian Mode: Read/Write enabled for M&amp;E Focal Points</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <label for="roleSelect" class="text-slate-400 font-semibold">Quick Role Switch:</label>
+        <select id="roleSelect" onchange="handleQuickRoleSwitch()" class="pbi-slicer px-2 py-0.5 text-[11px] font-semibold">
+          <option value="planner" selected>Tier 1: Planners &amp; M&amp;E Unit (Custodians)</option>
+          <option value="management">Tier 2: University Management (Approve/Direct)</option>
+          <option value="board">Tier 3: Board of Governors / Public (Read-Only)</option>
+        </select>
+        <button id="resetDemoBtn" onclick="resetToBaselineData()" class="text-sky-400 hover:text-sky-300 underline cursor-pointer">
+          Reset Demo Data
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- MAIN POWER BI EXECUTIVE WORKSPACE (LEFT BLUE RAIL + DARK NAVY CANVAS) -->
+  <!-- ===================================================================== -->
+  <div class="flex-1 flex flex-col lg:flex-row">
+
+    <!-- LEFT ROYAL-BLUE NAVIGATION SIDEBAR (Matches iURDAS Executive Reports Rail) -->
+    <aside class="w-full lg:w-60 bg-[#004C8C] text-white flex-shrink-0 flex flex-col justify-between border-r border-[#185A94] no-print">
+      <div>
+        <!-- Sidebar Header -->
+        <div class="p-4 border-b border-white/15 flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center">
+            <i class="fa-solid fa-chart-pie text-white text-sm"></i>
+          </div>
+          <div>
+            <div class="font-extrabold text-xs tracking-wide">iURDAS Executive Reports</div>
+            <div class="text-[10px] text-sky-200">Strategic Plan 2025–2030</div>
+          </div>
+        </div>
+
+        <!-- Dataset Tree Header -->
+        <div class="px-4 py-2.5 text-[11px] font-bold uppercase tracking-wider text-sky-200 flex items-center justify-between bg-[#003F75]">
+          <span>UR_Strategic_Plan_M&amp;E...</span>
+          <i class="fa-solid fa-chevron-up text-[10px]"></i>
+        </div>
+
+        <!-- Navigation Pages (Vertical Menu matching screenshot) -->
+        <nav class="py-1 flex lg:flex-col overflow-x-auto" role="tablist">
+          <button onclick="switchTab('overview')" id="tab-overview" class="left-rail-item active flex items-center gap-2.5 px-4 py-2.5 text-xs text-left whitespace-nowrap cursor-pointer">
+            <i class="fa-solid fa-gauge-high w-4 text-sky-200"></i>
+            <span>Executive Overview</span>
+          </button>
+          <button onclick="switchTab('goals')" id="tab-goals" class="left-rail-item flex items-center gap-2.5 px-4 py-2.5 text-xs text-left whitespace-nowrap cursor-pointer">
+            <i class="fa-solid fa-bullseye w-4 text-sky-200"></i>
+            <span>6 Strategic Goals &amp; KPIs</span>
+          </button>
+          <button onclick="switchTab('colleges')" id="tab-colleges" class="left-rail-item flex items-center gap-2.5 px-4 py-2.5 text-xs text-left whitespace-nowrap cursor-pointer">
+            <i class="fa-solid fa-building-columns w-4 text-sky-200"></i>
+            <span>7 Colleges &amp; Campuses</span>
+          </button>
+          <button onclick="switchTab('projects')" id="tab-projects" class="left-rail-item flex items-center gap-2.5 px-4 py-2.5 text-xs text-left whitespace-nowrap cursor-pointer">
+            <i class="fa-solid fa-hand-holding-dollar w-4 text-sky-200"></i>
+            <span>Priority Projects (Annex C)</span>
+          </button>
+          <button onclick="switchTab('governance')" id="tab-governance" class="left-rail-item flex items-center gap-2.5 px-4 py-2.5 text-xs text-left whitespace-nowrap cursor-pointer">
+            <i class="fa-solid fa-shield-halved w-4 text-sky-200"></i>
+            <span>Governance, Audit &amp; Risks</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Bottom Sidebar Info -->
+      <div class="hidden lg:block p-4 border-t border-white/15 text-[11px] text-sky-100 space-y-2 bg-[#003F75]/60">
+        <div class="font-bold text-white"><i class="fa-solid fa-circle-check text-emerald-300 mr-1.5"></i>Aligned Frameworks</div>
+        <p class="text-[10px] text-sky-200 leading-relaxed">
+          Vision 2050 • NST2 • ESSP • HEC HESSP 2025–2030 • Law No. 053/2024
+        </p>
+        <button onclick="openAuthGate()" class="w-full mt-2 py-1.5 px-2.5 rounded bg-white/10 hover:bg-white/20 text-white font-semibold text-[11px] flex items-center justify-center gap-1.5 transition cursor-pointer">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Switch Role / Gate</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- RIGHT DARK NAVY EXECUTIVE REPORT CANVAS (#090C15) -->
+    <main class="flex-1 bg-[#090C15] p-4 sm:p-5 space-y-4 overflow-x-hidden">
+
+      <!-- =================================================================== -->
+      <!-- TOP EXECUTIVE HEADER ROW (ORIGINAL UR EMBLEM + COLLEGE TILE SLICERS + KPI CALLOUT CARDS) -->
+      <!-- =================================================================== -->
+      <div class="grid grid-cols-1 xl:grid-cols-12 gap-3 items-stretch">
+        
+        <!-- Left: Original Circular UR Emblem + Active View Title -->
+        <div class="xl:col-span-4 flex items-center gap-4 bg-[#0D1220] border border-[#232D4B] rounded-xl px-4 py-3">
+          <!-- Original Circular UR Seal SVG (Matching UR Logo_2.png) -->
+          <div class="flex-shrink-0">
+            <svg width="78" height="78" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-label="University of Rwanda Original Seal">
+              <defs>
+                <path id="headerTopArc" d="M 24,110 A 86,86 0 1,1 196,110" />
+              </defs>
+              <!-- Outer Crisp White Circular Badge with Deep Teal Ring -->
+              <circle cx="110" cy="110" r="106" fill="#FFFFFF" stroke="#185A73" stroke-width="3.5"/>
+              <!-- Curved Top Title -->
+              <text fill="#185A73" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="14.2" letter-spacing="2.3">
+                <textPath href="#headerTopArc" startOffset="50%" text-anchor="middle">UNIVERSITY of RWANDA</textPath>
+              </text>
+              <!-- Inner Deep Teal Disc -->
+              <circle cx="110" cy="110" r="73" fill="#185A73"/>
+              <!-- Twisted / Braided Rope Ring -->
+              <circle cx="110" cy="110" r="78" fill="none" stroke="#185A73" stroke-width="5.5" stroke-dasharray="6,4.5"/>
+              <circle cx="110" cy="110" r="75.5" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="4.5,6"/>
+              <!-- Multi-Striped Interlocking 'U' -->
+              <g fill="none" stroke="#FFFFFF" stroke-linecap="square">
+                <path d="M 60,78 L 60,120 C 60,136 70,145 84,145 C 98,145 107,136 107,120 L 107,78" stroke-width="11"/>
+                <path d="M 60,78 L 60,120 C 60,136 70,145 84,145 C 98,145 107,136 107,120 L 107,78" stroke="#185A73" stroke-width="5.5"/>
+                <path d="M 60,78 L 60,120 C 60,136 70,145 84,145 C 98,145 107,136 107,120 L 107,78" stroke="#FFFFFF" stroke-width="2"/>
+              </g>
+              <!-- Multi-Striped Interlocking 'R' -->
+              <g fill="none" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="miter">
+                <path d="M 91,62 L 91,148 M 85,62 L 126,62 C 144,62 154,72 154,86 C 154,99 144,108 126,108 L 94,108 M 120,108 L 154,148" stroke-width="11"/>
+                <path d="M 91,62 L 91,148 M 85,62 L 126,62 C 144,62 154,72 154,86 C 154,99 144,108 126,108 L 94,108 M 120,108 L 154,148" stroke="#185A73" stroke-width="5.5"/>
+                <path d="M 91,62 L 91,148 M 85,62 L 126,62 C 144,62 154,72 154,86 C 154,99 144,108 126,108 L 94,108 M 120,108 L 154,148" stroke="#FFFFFF" stroke-width="2"/>
+              </g>
+            </svg>
+          </div>
+          <div>
+            <h1 id="canvasMainHeading" class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Strategic Plan M&amp;E</h1>
+            <p id="heroPeriodLabel" class="text-xs text-sky-300 font-semibold mt-0.5">2026/27 (Year 2) • Q2 DPF Cycle</p>
+            <p class="text-[11px] text-slate-400 mt-0.5">Click any College tile to filter KPIs &amp; analytics</p>
+          </div>
+        </div>
+
+        <!-- Center: 7 UR College Tile Slicers (Matches CAFF | CASS | CBE | CE | CMHS | CST | CVAS buttons in screenshot) -->
+        <div class="xl:col-span-6 grid grid-cols-4 sm:grid-cols-8 gap-1.5 items-stretch no-print">
+          <button onclick="selectCollegeTile('ALL')" data-col="ALL" class="pbi-tile active flex flex-col items-center justify-center py-2.5 px-1 text-center cursor-pointer">
+            <span class="text-xs sm:text-sm font-extrabold text-white">ALL</span>
+            <span class="text-[9px] text-sky-300 mt-0.5">7 Colleges</span>
+          </button>
+          <button onclick="selectCollegeTile('CAFF')" data-col="CAFF" class="pbi-tile flex flex-col items-center justify-center py-2.5 px-1 text-center cursor-pointer">
+            <span class="text-xs sm:text-sm font-extrabold text-white">CAFF</span>
+            <span class="text-[9px] text-slate-400 mt-0.5">Busogo</span>
+          </button>
+          <button onclick="selectCollegeTile('CASS')" data-col="CASS" class="pbi-tile flex flex-col items-center justify-center py-2.5 px-1 text-center cursor-pointer">
+            <span class="text-xs sm:text-sm font-extrabold text-white">CASS</span>
+            <span class="text-[9px] text-slate-400 mt-0.5">Huye</span>
+          </button>
+          <button onclick="selectCollegeTile('CBE')" data-col="CBE" class="pbi-tile flex flex-col items-center justify-center py-2.5 px-1 text-center cursor-pointer">
+            <span class="text-xs sm:text-sm font-extrabold text-white">CBE</span>
+            <span class="text-[9px] text-slate-400 mt-0.5">Huye</span>
+          </button>
+          <button onclick="selectCollegeTile('CE')" data-col="CE" class="pbi-tile flex flex-col items-center justify-center py-2.5 px-1 text-center cursor-pointer">
+            <span class="text-xs sm:text-sm font-extrabold text-white">CE</span>
+            <span class="text-[9px] text-slate-400 mt-0.5">Rukara</span>
+          </button>
+          <button onclick="selectCollegeTile('CMHS')" data-col="CMHS" class="pbi-tile flex flex-col items-center justify-center py-2.5 px-1 text-center cursor-pointer">
+            <span class="text-xs sm:text-sm font-extrabold text-white">CMHS</span>
+            <span class="text-[9px] text-slate-400 mt-0.5">Remera</span>
+          </button>
+          <button onclick="selectCollegeTile('CST')" data-col="CST" class="pbi-tile flex flex-col items-center justify-center py-2.5 px-1 text-center cursor-pointer">
+            <span class="text-xs sm:text-sm font-extrabold text-white">CST</span>
+            <span class="text-[9px] text-slate-400 mt-0.5">Kigali</span>
+          </button>
+          <button onclick="selectCollegeTile('CVAS')" data-col="CVAS" class="pbi-tile flex flex-col items-center justify-center py-2.5 px-1 text-center cursor-pointer">
+            <span class="text-xs sm:text-sm font-extrabold text-white">CVAS</span>
+            <span class="text-[9px] text-slate-400 mt-0.5">Nyagatare</span>
+          </button>
+        </div>
+
+        <!-- Right: Two Stacked Executive KPI Callout Cards (Matches 360K Baseline Year & # Programmes 1.04K cards) -->
+        <div class="xl:col-span-2 grid grid-cols-2 xl:grid-cols-1 gap-2">
+          <div class="pbi-card px-3 py-2 text-center flex flex-col justify-center">
+            <div id="topCalloutEnrolment" class="text-lg sm:text-xl font-extrabold text-white leading-tight">37,450</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold mt-0.5">Active Enrolment (2030: 60.1K)</div>
+          </div>
+          <div class="pbi-card px-3 py-2 text-center flex flex-col justify-center">
+            <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">On-Track KPIs / Programmes</div>
+            <div id="topCalloutOnTrack" class="text-base sm:text-lg font-extrabold text-[#38BDF8] leading-tight mt-0.5">88.5% • 88 UG</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- =================================================================== -->
+      <!-- HORIZONTAL SLICER BAR (Matches Academic_Year | Quarter | Goal | Campus | RAG Status) -->
+      <!-- =================================================================== -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 no-print">
+        <div>
+          <label for="yearSelect" class="block text-[11px] font-bold text-slate-300 mb-1">Academic_Year</label>
+          <select id="yearSelect" onchange="handleFilterChange()" class="w-full pbi-slicer px-2.5 py-1.5 text-xs font-semibold">
+            <option value="baseline">2024/25 (Baseline)</option>
+            <option value="y25_26">2025/26 (Year 1)</option>
+            <option value="y26_27" selected>2026/27 (Current Year 2)</option>
+            <option value="y27_28">2027/28 (Mid-Term)</option>
+            <option value="y28_29">2028/29 (Year 4)</option>
+            <option value="y29_30">2029/30 (2030 End Target)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="quarterSelect" class="block text-[11px] font-bold text-slate-300 mb-1">Reporting_Quarter</label>
+          <select id="quarterSelect" onchange="handleFilterChange()" class="w-full pbi-slicer px-2.5 py-1.5 text-xs font-semibold">
+            <option value="Q1">Q1 (Jul–Sep)</option>
+            <option value="Q2" selected>Q2 (Oct–Dec • DPF Cycle)</option>
+            <option value="Q3">Q3 (Jan–Mar)</option>
+            <option value="Q4">Q4 (Apr–Jun • Annual Audit)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="slicerGoalSelect" class="block text-[11px] font-bold text-slate-300 mb-1">Strategic_Goal</label>
+          <select id="slicerGoalSelect" onchange="setGoalFilter(this.value)" class="w-full pbi-slicer px-2.5 py-1.5 text-xs font-semibold">
+            <option value="ALL">All (6 Strategic Goals)</option>
+            <option value="G1">Goal 1: Digital &amp; UR Online</option>
+            <option value="G2">Goal 2: Academic &amp; Employability</option>
+            <option value="G3">Goal 3: Research &amp; Tech Transfer</option>
+            <option value="G4">Goal 4: People &amp; Infrastructure</option>
+            <option value="G5">Goal 5: Resource Mobilisation</option>
+            <option value="G6">Goal 6: Internationalisation</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="slicerCampusSelect" class="block text-[11px] font-bold text-slate-300 mb-1">Campus_Hub</label>
+          <select id="slicerCampusSelect" onchange="handleCampusSlicer()" class="w-full pbi-slicer px-2.5 py-1.5 text-xs font-semibold">
+            <option value="ALL">All (11 UR Campuses)</option>
+            <option value="Nyarugenge / Kigali">Nyarugenge / Kigali (CST)</option>
+            <option value="Huye">Huye Campus (CASS/CBE/CMHS)</option>
+            <option value="Busogo / Musanze">Busogo / Musanze (CAFF)</option>
+            <option value="Rukara / Kayonza">Rukara / Kayonza (CE)</option>
+            <option value="Remera">Remera Campus (CMHS)</option>
+            <option value="Nyagatare">Nyagatare Campus (CVAS)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="ragFilterSelect" class="block text-[11px] font-bold text-slate-300 mb-1">Verification_&_RAG</label>
+          <select id="ragFilterSelect" onchange="renderMasterKpiTable()" class="w-full pbi-slicer px-2.5 py-1.5 text-xs font-semibold">
+            <option value="ALL">All Statuses</option>
+            <option value="On Track">🟢 On Track (&ge;95%)</option>
+            <option value="At Risk">🟡 At Risk (80–94%)</option>
+            <option value="Off Track">🔴 Off Track (&lt;80%)</option>
+            <option value="PENDING">⏳ Pending Mgmt Verification</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- =================================================================== -->
+      <!-- VIEW 1: EXECUTIVE OVERVIEW (6-PANEL POWER BI GRID + HEADLINE KPIs)  -->
+      <!-- =================================================================== -->
+      <section id="view-overview" class="space-y-4">
+        
+        <!-- 6 Power BI Visual Cards Grid (3x2 matching the screenshot's dark analytics grid) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          
+          <!-- Panel 1 (Top-Left): Enrolment & AOP Execution by Colleges (Horizontal Bar Chart) -->
+          <div class="lg:col-span-4 pbi-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-sm font-bold text-white">Enrolment Share by Colleges</h3>
+              <span class="text-[10px] text-sky-400 font-semibold">Annex C.3</span>
+            </div>
+            <div class="relative h-[220px] w-full">
+              <canvas id="collegeBarChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Panel 2 (Top-Middle): Gender & Inclusion Split (Donut Ring matching screenshot) -->
+          <div class="lg:col-span-3 pbi-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-sm font-bold text-white">Students by Gender</h3>
+              <span class="text-[10px] text-sky-400 font-semibold">2030 Target: &ge;40% F</span>
+            </div>
+            <div class="relative h-[220px] w-full flex items-center justify-center">
+              <canvas id="genderDonutChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Panel 3 (Top-Right): 2025-2030 Strategic Trajectory Stacked/Grouped Bar Chart -->
+          <div class="lg:col-span-5 pbi-card p-4 flex flex-col justify-between">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <h3 class="text-sm font-bold text-white">2025–2030 Trajectory vs. Actual</h3>
+              <select id="chartMetricSelect" onchange="renderTrajectoryChart()" class="pbi-slicer px-2 py-1 text-[11px] font-semibold">
+                <option value="G3-01">Publications (718 &rarr; 6,750)</option>
+                <option value="G2-01">Total Enrolment (31K &rarr; 60.1K)</option>
+                <option value="G1-01">UR Online ODeL (0 &rarr; 19.5K)</option>
+                <option value="G5-02">External Grants (35.8B &rarr; 60B)</option>
+                <option value="G2-02">Employability % (57% &rarr; 74%)</option>
+              </select>
+            </div>
+            <div class="relative h-[220px] w-full">
+              <canvas id="trajectoryChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Panel 4 (Bottom-Left): STEM vs NON-STEM Enrolment Breakdown -->
+          <div class="lg:col-span-4 pbi-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-sm font-bold text-white">Students by Area of Study</h3>
+              <span class="text-[10px] text-slate-400">NST2 Priority Alignment</span>
+            </div>
+            <div class="relative h-[195px] w-full">
+              <canvas id="stemBarChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Panel 5 (Bottom-Middle): Revenue & Financing Mix Donut Ring -->
+          <div class="lg:col-span-3 pbi-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-sm font-bold text-white">Revenue Diversification</h3>
+              <span class="text-[10px] text-sky-400 font-semibold">Goal 5 (25% Non-GoR)</span>
+            </div>
+            <div class="relative h-[195px] w-full flex items-center justify-center">
+              <canvas id="revenueDonutChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Panel 6 (Bottom-Right): Annex C.1 Quarterly Goal Traffic-Light Scorecard -->
+          <div class="lg:col-span-5 pbi-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-sm font-bold text-white">Annex C.1 Quarterly Goal Health</h3>
+              <span class="text-[10px] text-amber-400 font-semibold">Click goal to inspect KPIs</span>
+            </div>
+            <div id="goalTrafficLightList" class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <!-- Populated dynamically by JS -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 6 Headline Hero KPI Cards Row -->
+        <div id="heroKpiGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Dynamically populated by JS -->
+        </div>
+
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- VIEW 2: 6 STRATEGIC GOALS & MASTER KPI SCORECARD                    -->
+      <!-- =================================================================== -->
+      <section id="view-goals" class="hidden space-y-4">
+        
+        <div class="pbi-card p-4 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <button onclick="setGoalFilter('ALL')" data-goal="ALL" class="goal-pill-btn px-3 py-1.5 rounded-md text-xs font-bold bg-[#0078D4] text-white cursor-pointer">All 6 Goals</button>
+            <button onclick="setGoalFilter('G1')" data-goal="G1" class="goal-pill-btn px-3 py-1.5 rounded-md text-xs font-semibold bg-[#1E263D] text-slate-300 hover:text-white cursor-pointer">G1: Digital &amp; UR Online</button>
+            <button onclick="setGoalFilter('G2')" data-goal="G2" class="goal-pill-btn px-3 py-1.5 rounded-md text-xs font-semibold bg-[#1E263D] text-slate-300 hover:text-white cursor-pointer">G2: Academic &amp; Employability</button>
+            <button onclick="setGoalFilter('G3')" data-goal="G3" class="goal-pill-btn px-3 py-1.5 rounded-md text-xs font-semibold bg-[#1E263D] text-slate-300 hover:text-white cursor-pointer">G3: Research &amp; Tech Transfer</button>
+            <button onclick="setGoalFilter('G4')" data-goal="G4" class="goal-pill-btn px-3 py-1.5 rounded-md text-xs font-semibold bg-[#1E263D] text-slate-300 hover:text-white cursor-pointer">G4: People &amp; Infrastructure</button>
+            <button onclick="setGoalFilter('G5')" data-goal="G5" class="goal-pill-btn px-3 py-1.5 rounded-md text-xs font-semibold bg-[#1E263D] text-slate-300 hover:text-white cursor-pointer">G5: Resource Mobilisation</button>
+            <button onclick="setGoalFilter('G6')" data-goal="G6" class="goal-pill-btn px-3 py-1.5 rounded-md text-xs font-semibold bg-[#1E263D] text-slate-300 hover:text-white cursor-pointer">G6: Internationalisation</button>
+          </div>
+
+          <div class="relative">
+            <i class="fa-solid fa-magnifying-glass text-slate-400 absolute left-3 top-2.5 text-xs"></i>
+            <input type="text" id="kpiSearchInput" oninput="renderMasterKpiTable()" placeholder="Filter KPI ID, indicator, owner..." class="pl-8 pr-3 py-1.5 text-xs pbi-slicer w-60" />
+          </div>
+        </div>
+
+        <!-- MASTER KPI SCORECARD TABLE -->
+        <div class="pbi-card overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-[#26304D] text-xs">
+              <thead class="bg-[#0E1424] text-slate-200">
+                <tr>
+                  <th class="px-3 py-3 text-left font-bold uppercase tracking-wider">ID</th>
+                  <th class="px-3 py-3 text-left font-bold uppercase tracking-wider min-w-[230px]">Key Performance Indicator (KPI)</th>
+                  <th class="px-3 py-3 text-right font-semibold uppercase tracking-wider">2024/25<br><span class="text-slate-400 font-normal">Baseline</span></th>
+                  <th class="px-3 py-3 text-right font-semibold uppercase tracking-wider bg-[#004C8C]/40">2026/27<br><span class="text-sky-300 font-normal">Target</span></th>
+                  <th class="px-3 py-3 text-right font-semibold uppercase tracking-wider">2027/28<br><span class="text-slate-400 font-normal">Mid-Term</span></th>
+                  <th class="px-3 py-3 text-right font-semibold uppercase tracking-wider">2029/30<br><span class="text-emerald-400 font-normal">End Target</span></th>
+                  <th class="px-3 py-3 text-right font-bold uppercase tracking-wider bg-[#1D2642]">Current<br><span class="text-amber-400 font-normal">Actual</span></th>
+                  <th class="px-3 py-3 text-right font-bold uppercase tracking-wider">Period<br>Variance</th>
+                  <th class="px-3 py-3 text-center font-bold uppercase tracking-wider">RAG<br>Status</th>
+                  <th class="px-3 py-3 text-center font-bold uppercase tracking-wider">Verification<br>Workflow</th>
+                  <th class="px-3 py-3 text-left font-semibold uppercase tracking-wider">Responsible Unit</th>
+                  <th class="px-3 py-3 text-center font-bold uppercase tracking-wider no-print">RBAC Action</th>
+                </tr>
+              </thead>
+              <tbody id="masterKpiTableBody" class="divide-y divide-[#222B45] bg-[#151A2C]">
+                <!-- Dynamically populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- VIEW 3: 7 COLLEGES & 11 CAMPUSES PERFORMANCE                        -->
+      <!-- =================================================================== -->
+      <section id="view-colleges" class="hidden space-y-4">
+        
+        <div class="pbi-card p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-sky-400">Reform Cluster 2 &amp; 3 • Decentralised College Model</span>
+            <h2 class="text-lg font-extrabold text-white">7 UR Colleges &amp; Designated Home Campuses Performance</h2>
+            <p class="text-xs text-slate-300 mt-0.5">
+              Under Law No. 053/2024, Colleges operate as primary academic &amp; budgetary units with lean HQ policy oversight (78 staff).
+            </p>
+          </div>
+          <div class="flex items-center gap-2 no-print">
+            <button id="submitCollegeReturnBtn" onclick="openCollegeModal()" class="bg-[#0078D4] hover:bg-[#0063B1] text-white text-xs font-bold px-4 py-2.5 rounded-lg shadow transition cursor-pointer">
+              <i class="fa-solid fa-file-circle-plus mr-1.5"></i>Submit College AOP Return (Annex C.3)
+            </button>
+          </div>
+        </div>
+
+        <!-- 7 Colleges Cards Grid -->
+        <div id="collegesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <!-- Populated dynamically by JS -->
+        </div>
+
+        <!-- Annex C.3 Consolidated College Annual KPI Return Matrix -->
+        <div class="pbi-card p-5">
+          <h3 class="text-base font-bold text-white mb-1">Consolidated College AOP &amp; Decentralisation Scorecard (Annex C.3)</h3>
+          <p class="text-xs text-slate-400 mb-4">Comparative tracking of student enrolment, PhD faculty share, Industry Advisory Panels, and Management endorsement</p>
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-[#26304D] text-xs">
+              <thead class="bg-[#0E1424] text-slate-200">
+                <tr>
+                  <th class="px-3 py-2.5 text-left font-bold">College</th>
+                  <th class="px-3 py-2.5 text-left font-bold">Home Campus(es)</th>
+                  <th class="px-3 py-2.5 text-right font-bold">Enrolment</th>
+                  <th class="px-3 py-2.5 text-right font-bold">PhD Faculty %</th>
+                  <th class="px-3 py-2.5 text-center font-bold">Industry Panel</th>
+                  <th class="px-3 py-2.5 text-right font-bold">AOP Execution</th>
+                  <th class="px-3 py-2.5 text-center font-bold">Endorsement</th>
+                  <th class="px-3 py-2.5 text-center font-bold no-print">Action</th>
+                </tr>
+              </thead>
+              <tbody id="collegeComparisonTable" class="divide-y divide-[#222B45]">
+                <!-- Populated dynamically by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- VIEW 4: PRIORITY PROJECTS PORTFOLIO (ANNEX C)                       -->
+      <!-- =================================================================== -->
+      <section id="view-projects" class="hidden space-y-4">
+        
+        <div class="pbi-card p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Annex C • Bankable Investment Portfolio</span>
+            <h2 class="text-lg font-extrabold text-white">Priority Projects for Resource Mobilisation (USD 480.9M – 598.3M)</h2>
+            <p class="text-xs text-slate-300 mt-0.5">
+              Structured investment pipeline presented to Government, Development Partners, DFIs, and Private Investors.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-1.5 no-print">
+            <button onclick="filterProjects('ALL')" data-stage="ALL" class="proj-filter-btn px-3 py-1.5 rounded-md text-xs font-bold bg-[#0078D4] text-white cursor-pointer">All Projects</button>
+            <button onclick="filterProjects('Advanced')" data-stage="Advanced" class="proj-filter-btn px-3 py-1.5 rounded-md text-xs font-semibold bg-[#1E263D] text-slate-300 cursor-pointer">★ Advanced Stage (3)</button>
+            <button onclick="filterProjects('PPP')" data-stage="PPP" class="proj-filter-btn px-3 py-1.5 rounded-md text-xs font-semibold bg-[#1E263D] text-slate-300 cursor-pointer">PPP / Blended (*)</button>
+            <button onclick="filterProjects('Proposal')" data-stage="Proposal" class="proj-filter-btn px-3 py-1.5 rounded-md text-xs font-semibold bg-[#1E263D] text-slate-300 cursor-pointer">Pipeline Proposals</button>
+          </div>
+        </div>
+
+        <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Dynamically populated by JS -->
+        </div>
+
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- VIEW 5: GOVERNANCE, AUDIT TRAIL & RISK REGISTER                     -->
+      <!-- =================================================================== -->
+      <section id="view-governance" class="hidden space-y-4">
+
+        <!-- QUARTERLY WINDOW LOCK & IMMUTABLE AUDIT LOG PANEL -->
+        <div class="pbi-card p-5 space-y-4">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-[#26304D]">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-sky-400">M&amp;E Framework Sections 5.1 &amp; 5.2 • Accountability &amp; Verification</span>
+              <h2 class="text-lg font-extrabold text-white">Immutable M&amp;E Audit Trail &amp; Quarterly Window Governance</h2>
+              <p class="text-xs text-slate-400 mt-0.5">
+                Per Section 5.1, custodians lock quarterly data entry 15 days after quarter close to prepare the Board &amp; SIC traffic-light report.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3 no-print">
+              <button id="govSyncHubBtn" onclick="openSyncHubModal()" class="px-3.5 py-2.5 rounded-xl font-bold text-xs bg-emerald-600 hover:bg-emerald-500 text-white shadow transition cursor-pointer flex items-center gap-2">
+                <i class="fa-solid fa-code-merge"></i>
+                <span>Head Office &amp; College JSON Sync Hub</span>
+              </button>
+
+              <div class="flex items-center gap-3 px-4 py-2.5 rounded-xl border border-[#2D3B63] bg-[#0E1424]">
+                <div class="text-xs">
+                  <div class="font-bold text-white" id="windowLockTitle">Q2 2026/27 Reporting Window: OPEN</div>
+                  <div class="text-[11px] text-slate-400" id="windowLockSubtitle">Custodians may submit KPI &amp; College AOP updates</div>
+                </div>
+                <button id="toggleWindowLockBtn" onclick="toggleQuarterlyWindowLock()" class="px-3.5 py-2 rounded-lg font-bold text-xs bg-[#0078D4] hover:bg-[#0063B1] text-white shadow transition cursor-pointer">
+                  <i class="fa-solid fa-lock mr-1"></i>Lock Window
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Audit Log Table -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-clock-rotate-left text-amber-400"></i>
+                <span>System Audit Trail (<span id="auditLogCount">0</span> Recorded Events)</span>
+              </h3>
+              <span class="text-[11px] text-slate-400">All custodian submissions, approvals, directives &amp; window locks are permanently logged</span>
+            </div>
+            <div class="overflow-x-auto max-h-[300px] border border-[#26304D] rounded-lg">
+              <table class="min-w-full divide-y divide-[#26304D] text-xs">
+                <thead class="bg-[#0E1424] text-slate-200 sticky top-0">
+                  <tr>
+                    <th class="px-3 py-2.5 text-left font-bold">Timestamp</th>
+                    <th class="px-3 py-2.5 text-left font-bold">User Role / Custodian</th>
+                    <th class="px-3 py-2.5 text-left font-bold">Action Type</th>
+                    <th class="px-3 py-2.5 text-left font-bold">Indicator / Entity</th>
+                    <th class="px-3 py-2.5 text-left font-bold">Change / Directive Details</th>
+                    <th class="px-3 py-2.5 text-center font-bold">Verification Status</th>
+                  </tr>
+                </thead>
+                <tbody id="auditLogTableBody" class="divide-y divide-[#222B45] bg-[#151A2C]">
+                  <!-- Dynamically populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 7 Institutional Reform Clusters (Annex D) -->
+        <div class="pbi-card p-5">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-sky-400">Cabinet Approval 27 February 2024 • Law No. 053/2024</span>
+          <h3 class="text-base font-extrabold text-white mt-0.5 mb-3">Institutional Reform Implementation Tracker (Annex D)</h3>
+          <div id="reformClustersGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+            <!-- Dynamically populated by JS -->
+          </div>
+        </div>
+
+        <!-- Strategic & HESSP M&E Risk Register -->
+        <div class="pbi-card p-5">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-rose-400">Board Risk Oversight • Section 6.4</span>
+          <h3 class="text-base font-extrabold text-white mt-0.5 mb-3">Strategic Implementation &amp; M&amp;E Risk Register</h3>
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-[#26304D] text-xs">
+              <thead class="bg-[#0E1424] text-slate-200">
+                <tr>
+                  <th class="px-3 py-2.5 text-left font-bold">#</th>
+                  <th class="px-3 py-2.5 text-left font-bold">Strategic / M&amp;E Risk Description</th>
+                  <th class="px-3 py-2.5 text-center font-bold">Severity</th>
+                  <th class="px-3 py-2.5 text-left font-bold">Mitigation Strategy &amp; Institutional Response</th>
+                  <th class="px-3 py-2.5 text-left font-bold">Risk Owner</th>
+                </tr>
+              </thead>
+              <tbody id="riskRegisterTableBody" class="divide-y divide-[#222B45]">
+                <!-- Dynamically populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toastNotification" class="fixed bottom-5 right-5 z-50 hidden bg-[#151A2C] text-white px-4 py-3 rounded-xl shadow-2xl border-l-4 border-[#38BDF8] border border-[#2D3B63] flex items-center gap-2.5 text-xs font-semibold max-w-md">
+    <i class="fa-solid fa-circle-check text-[#38BDF8] text-base"></i>
+    <span id="toastMessage">Action completed.</span>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 1: SUBMIT KPI UPDATE (TIER 1 PLANNERS & CUSTODIANS)             -->
+  <!-- ===================================================================== -->
+  <div id="kpiUpdateModal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-[#151A2C] rounded-2xl max-w-lg w-full shadow-2xl border border-[#3B4666] overflow-hidden">
+      <div class="bg-[#004C8C] text-white px-5 py-4 flex items-center justify-between border-b border-[#2E3A59]">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-pen-to-square text-amber-400"></i>
+          <h3 class="font-bold text-base">Submit Quarterly KPI Actual (Custodian Entry)</h3>
+        </div>
+        <button onclick="closeKpiModal()" class="text-sky-200 hover:text-white cursor-pointer">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <form onsubmit="saveKpiUpdate(event)" class="p-5 space-y-4 text-xs">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-300 mb-1">Strategic Goal</label>
+            <select id="modalGoalSelect" onchange="populateModalKpiDropdown()" class="w-full pbi-slicer px-3 py-2 font-semibold">
+              <option value="G1">Goal 1: Digital &amp; UR Online</option>
+              <option value="G2">Goal 2: Academic &amp; Employability</option>
+              <option value="G3">Goal 3: Research &amp; Innovation</option>
+              <option value="G4">Goal 4: People &amp; Infrastructure</option>
+              <option value="G5">Goal 5: Resource Mobilisation</option>
+              <option value="G6">Goal 6: Internationalisation</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-300 mb-1">Select KPI Indicator</label>
+            <select id="modalKpiSelect" onchange="loadSelectedKpiDetails()" class="w-full pbi-slicer px-3 py-2 font-semibold"></select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-2 bg-[#0E1322] p-3 rounded-xl border border-[#2A3555] text-center">
+          <div>
+            <span class="block text-[10px] text-slate-400">2024/25 Baseline</span>
+            <strong id="modalBaselineVal" class="text-white text-sm">—</strong>
+          </div>
+          <div>
+            <span class="block text-[10px] text-slate-400">2026/27 Milestone</span>
+            <strong id="modalMilestoneVal" class="text-sky-400 text-sm">—</strong>
+          </div>
+          <div>
+            <span class="block text-[10px] text-slate-400">2030 End Target</span>
+            <strong id="modalTargetVal" class="text-emerald-400 text-sm">—</strong>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-300 mb-1">Verified Actual Value (<span id="modalUnitLabel">unit</span>)</label>
+            <input type="number" step="any" id="modalActualInput" required class="w-full pbi-slicer px-3 py-2 font-extrabold text-white" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-300 mb-1">RAG Status Calculation</label>
+            <select id="modalStatusOverride" class="w-full pbi-slicer px-3 py-2 font-semibold">
+              <option value="AUTO">Automatic (Variance Engine)</option>
+              <option value="On Track">Force: On Track</option>
+              <option value="At Risk">Force: At Risk</option>
+              <option value="Off Track">Force: Off Track</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-300 mb-1">Primary Data Source &amp; Variance Justification (Required if &gt;10% off-target)</label>
+          <textarea id="modalNotesInput" rows="3" required placeholder="Cite ERP/MIS registry, Scopus audit, or explanation for variance..." class="w-full pbi-slicer px-3 py-2 text-slate-200"></textarea>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 pt-2 border-t border-[#26304D]">
+          <button type="button" onclick="closeKpiModal()" class="px-4 py-2 rounded-lg font-semibold text-slate-300 hover:bg-[#222B45] cursor-pointer">Cancel</button>
+          <button type="submit" class="px-4 py-2 rounded-lg font-bold bg-[#0078D4] hover:bg-[#0063B1] text-white shadow cursor-pointer">
+            <i class="fa-solid fa-paper-plane mr-1"></i>Submit for Mgmt Verification
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 2: COLLEGE ANNUAL KPI RETURN (ANNEX C.3)                        -->
+  <!-- ===================================================================== -->
+  <div id="collegeModal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-[#151A2C] rounded-2xl max-w-md w-full shadow-2xl border border-[#3B4666] overflow-hidden">
+      <div class="bg-[#004C8C] text-white px-5 py-4 flex items-center justify-between border-b border-[#2E3A59]">
+        <h3 class="font-bold text-sm">Submit College AOP Return (Annex C.3)</h3>
+        <button onclick="closeCollegeModal()" class="text-sky-200 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form onsubmit="saveCollegeReturn(event)" class="p-5 space-y-3.5 text-xs">
+        <div>
+          <label class="block font-bold text-slate-300 mb-1">Select UR College</label>
+          <select id="modalCollegeSelect" onchange="loadCollegeModalData()" class="w-full pbi-slicer px-3 py-2 font-bold"></select>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-300 mb-1">Total Student Enrolment</label>
+            <input type="number" id="modalCollegeEnrolment" required class="w-full pbi-slicer px-3 py-2 font-bold" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-300 mb-1">PhD-Qualified Faculty (%)</label>
+            <input type="number" step="0.1" id="modalCollegePhd" required class="w-full pbi-slicer px-3 py-2 font-bold" />
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-300 mb-1">AOP Execution Rate (%)</label>
+            <input type="number" min="0" max="100" id="modalCollegeAop" required class="w-full pbi-slicer px-3 py-2 font-bold" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-300 mb-1">Industry Advisory Panel</label>
+            <select id="modalCollegePanel" class="w-full pbi-slicer px-3 py-2 font-semibold">
+              <option value="Operational">Operational</option>
+              <option value="Formed">Formed (Inaugural)</option>
+              <option value="In Formation">In Formation</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex justify-end gap-2 pt-2 border-t border-[#26304D]">
+          <button type="button" onclick="closeCollegeModal()" class="px-4 py-2 rounded-lg font-semibold text-slate-300 hover:bg-[#222B45] cursor-pointer">Cancel</button>
+          <button type="submit" class="px-4 py-2 rounded-lg font-bold bg-[#0078D4] text-white cursor-pointer">Submit Return</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 3: UNIVERSITY MANAGEMENT REVIEW & APPROVAL MODAL (TIER 2)       -->
+  <!-- ===================================================================== -->
+  <div id="mgmtReviewModal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-[#151A2C] rounded-2xl max-w-lg w-full shadow-2xl border border-[#3B4666] overflow-hidden">
+      <div class="bg-[#004C8C] text-white px-5 py-4 flex items-center justify-between border-b border-[#2E3A59]">
+        <div class="flex items-center gap-2.5">
+          <i class="fa-solid fa-stamp text-amber-400"></i>
+          <h3 class="font-bold text-base">Executive Management Verification &amp; Directive</h3>
+        </div>
+        <button onclick="closeMgmtModal()" class="text-sky-200 hover:text-white cursor-pointer">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <form onsubmit="submitManagementAction(event)" class="p-5 space-y-4 text-xs">
+        <input type="hidden" id="mgmtKpiId" />
+        <div class="bg-[#0E1322] p-3.5 rounded-xl border border-[#2A3555] space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span id="mgmtKpiCode" class="font-extrabold text-sky-400">—</span>
+            <span id="mgmtKpiVarianceBadge" class="px-2 py-0.5 rounded font-bold text-[10px]">—</span>
+          </div>
+          <div id="mgmtKpiTitle" class="font-bold text-sm text-white">—</div>
+          <div class="grid grid-cols-3 gap-2 pt-2 border-t border-[#26304D] text-[11px]">
+            <div>Period Target: <strong id="mgmtPeriodTarget" class="text-sky-400">—</strong></div>
+            <div>Custodian Actual: <strong id="mgmtReportedActual" class="text-white">—</strong></div>
+            <div>Status: <strong id="mgmtCurrentVerify">—</strong></div>
+          </div>
+        </div>
+
+        <div>
+          <span class="block font-bold text-slate-300 mb-1">Custodian Verification Evidence &amp; Notes:</span>
+          <div id="mgmtCustodianNotes" class="p-2.5 rounded-lg bg-[#0E1322] border border-[#2A3555] text-slate-300 italic">
+            —
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-300 mb-1">Executive Action Decision</label>
+          <select id="mgmtDecisionSelect" class="w-full pbi-slicer px-3 py-2 font-bold">
+            <option value="Verified">✅ Approve &amp; Verify Custodian Submission</option>
+            <option value="Directive Issued">⚠️ Endorse with Mandatory Variance Corrective Directive</option>
+            <option value="Returned to Custodian">↩️ Return to Custodian for Re-Verification</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="mgmtDirectiveInput" class="block font-bold text-slate-300 mb-1">Management Directive / Resource Reallocation Note (SIC &amp; Board Record)</label>
+          <textarea id="mgmtDirectiveInput" rows="3" required placeholder="Enter executive endorsement, corrective action mandate (required if >10% variance), or resource reallocation directive..." class="w-full pbi-slicer px-3 py-2 text-slate-200"></textarea>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 pt-2 border-t border-[#26304D]">
+          <button type="button" onclick="closeMgmtModal()" class="px-4 py-2 rounded-lg font-semibold text-slate-300 hover:bg-[#222B45] cursor-pointer">Cancel</button>
+          <button type="submit" class="px-4 py-2 rounded-lg font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 shadow cursor-pointer">
+            <i class="fa-solid fa-signature mr-1"></i>Record Executive Sign-Off
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 4: UPDATE PRIORITY PROJECT PROGRESS (PLANNER CUSTODIAN)         -->
+  <!-- ===================================================================== -->
+  <div id="projectUpdateModal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-[#151A2C] rounded-2xl max-w-md w-full shadow-2xl border border-[#3B4666] overflow-hidden">
+      <div class="bg-[#004C8C] text-white px-5 py-4 flex items-center justify-between">
+        <h3 class="font-bold text-sm">Update Priority Project Milestone Status</h3>
+        <button onclick="closeProjectModal()" class="text-sky-200 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form onsubmit="saveProjectUpdate(event)" class="p-5 space-y-4 text-xs">
+        <input type="hidden" id="modalProjId" />
+        <div>
+          <div id="modalProjTitle" class="font-bold text-sm text-white">—</div>
+          <div id="modalProjScale" class="text-[11px] text-slate-400 mt-0.5">—</div>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-300 mb-1">Readiness / Implementation Stage</label>
+          <select id="modalProjStage" class="w-full pbi-slicer px-3 py-2 font-semibold">
+            <option value="Advanced">★ Advanced Preparatory / Financing Ready</option>
+            <option value="PPP">PPP / Blended Finance Structuring (*)</option>
+            <option value="Proposal">Design / Pipeline Proposal Stage</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-300 mb-1">Current Milestone &amp; Financing Update</label>
+          <textarea id="modalProjStatus" rows="3" required class="w-full pbi-slicer px-3 py-2 text-slate-200"></textarea>
+        </div>
+        <div class="flex justify-end gap-2 pt-2 border-t border-[#26304D]">
+          <button type="button" onclick="closeProjectModal()" class="px-4 py-2 rounded-lg font-semibold text-slate-300 hover:bg-[#222B45] cursor-pointer">Cancel</button>
+          <button type="submit" class="px-4 py-2 rounded-lg font-bold bg-[#0078D4] text-white cursor-pointer">Save Project Milestone</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 5: HEAD OFFICE & COLLEGE CUSTODIAN JSON SYNC HUB                -->
+  <!-- ===================================================================== -->
+  <div id="syncHubModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-[#151A2C] rounded-2xl max-w-2xl w-full shadow-2xl border border-[#3B4666] overflow-hidden my-auto">
+      <div class="bg-gradient-to-r from-[#004C8C] to-[#0B101E] text-white px-5 py-4 flex items-center justify-between border-b border-[#2E3A59]">
+        <div class="flex items-center gap-2.5">
+          <i class="fa-solid fa-code-merge text-emerald-400 text-lg"></i>
+          <div>
+            <h3 class="font-bold text-base">Head Office &amp; College Custodian JSON Sync Hub</h3>
+            <p class="text-[11px] text-sky-200">Microsoft Teams / SharePoint Decentralized Return Consolidation Engine</p>
+          </div>
+        </div>
+        <button onclick="closeSyncHubModal()" class="text-sky-200 hover:text-white cursor-pointer">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <div class="p-5 space-y-5 text-xs">
+        <!-- Step 1: Export Package -->
+        <div class="bg-[#0E1322] border border-[#2A3555] rounded-xl p-4 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 rounded bg-[#0078D4] text-white font-bold text-[10px]">STEP 1 • EXPORT RETURN PACKAGE</span>
+            <span class="text-[11px] text-slate-400" id="syncCurrentCycleLabel">Cycle: 2026/27 • Q2</span>
+          </div>
+          <p class="text-slate-300 leading-relaxed">
+            <strong>College Planners:</strong> Select your College/Unit and export your quarterly data package (<code>.json</code>) to upload into the <em>UR_SP_2025_2030_Returns</em> Teams channel.<br>
+            <strong>Head Office M&amp;E Specialist:</strong> Export the consolidated Master State Snapshot for publishing to the iURDAS Executive link.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-2.5 items-end pt-1">
+            <div class="sm:col-span-7">
+              <label class="block font-bold text-slate-300 mb-1">Submitting Entity / Unit</label>
+              <select id="syncSourceEntitySelect" class="w-full pbi-slicer px-3 py-2 font-semibold">
+                <option value="HQ_ME_MASTER">Head Office — Planning &amp; M&amp;E Specialist (Full Master Snapshot)</option>
+                <option value="CAFF">College of Agriculture, Forestry &amp; Food Sciences (CAFF)</option>
+                <option value="CASS">College of Arts &amp; Social Sciences (CASS)</option>
+                <option value="CBE">College of Business &amp; Economics (CBE)</option>
+                <option value="CE">College of Education (CE)</option>
+                <option value="CMHS">College of Medicine &amp; Health Sciences (CMHS)</option>
+                <option value="CST">College of Science &amp; Technology (CST)</option>
+                <option value="CVAS">College of Veterinary &amp; Animal Sciences (CVAS)</option>
+              </select>
+            </div>
+            <div class="sm:col-span-5">
+              <button onclick="exportCustodianJson()" class="w-full py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold shadow transition cursor-pointer flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-download"></i>
+                <span>Export Return (.json)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Import & Merge Package -->
+        <div class="bg-[#0E1322] border border-[#2A3555] rounded-xl p-4 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-bold text-[10px]">STEP 2 • HEAD OFFICE IMPORT &amp; MERGE</span>
+            <span class="text-[11px] text-sky-400 font-semibold">Smart Conflict-Free Merge</span>
+          </div>
+          <p class="text-slate-300 leading-relaxed">
+            Upload one or multiple <code>.json</code> return files submitted by College Planners or HQ Units. The merge engine automatically updates modified KPI actuals, College Annex C.3 returns, Project milestones, and appends all audit trail records without overwriting verified entries from other colleges.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <label class="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 border-dashed border-[#3B4666] hover:border-[#38BDF8] bg-[#151A2C] cursor-pointer transition text-slate-200 font-semibold">
+              <i class="fa-solid fa-cloud-arrow-up text-[#38BDF8] text-base"></i>
+              <span id="jsonFileSelectedLabel">Select one or more .json return files...</span>
+              <input type="file" id="custodianJsonFileInput" accept=".json,application/json" multiple onchange="previewMergePackages(event)" class="hidden" />
+            </label>
+          </div>
+
+          <!-- Merge Preview Box -->
+          <div id="mergePreviewContainer" class="hidden bg-[#151A2C] border border-[#38BDF8]/50 rounded-lg p-3 space-y-2">
+            <div class="font-bold text-sky-300 flex items-center justify-between">
+              <span><i class="fa-solid fa-list-check mr-1.5"></i>Ready to Merge Packages:</span>
+              <span id="mergePreviewSummary" class="text-white">0 files</span>
+            </div>
+            <ul id="mergePreviewList" class="text-[11px] text-slate-300 space-y-1 max-h-28 overflow-y-auto pl-4 list-disc"></ul>
+            <div class="pt-2 flex justify-end">
+              <button onclick="executeMasterJsonMerge()" class="px-4 py-2 rounded-lg bg-[#0078D4] hover:bg-[#0063B1] text-white font-extrabold shadow transition cursor-pointer">
+                <i class="fa-solid fa-code-merge mr-1.5"></i>Execute Master Merge &amp; Log Audit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT APPLICATION LOGIC & DATA REPOSITORY                        -->
+  <!-- ===================================================================== -->
+  <script>
+    // -------------------------------------------------------------------------
+    // 1. DATA REPOSITORIES (M&E FRAMEWORK & STRATEGIC PLAN 2025-2030)
+    // -------------------------------------------------------------------------
+    const DEFAULT_KPIS = [
+      { id: 'G1-01', goal: 'G1', name: 'UR Online students enrolled (ODeL / hybrid)', unit: 'students', baseline: 0, y25_26: 500, y26_27: 2000, y27_28: 6500, y28_29: 12000, y29_30: 19500, actual: 2150, owner: 'DVC-AAR / UR Online', source: 'UR Online Registry', hero: true, notes: 'Mastercard Foundation Phase II cohort onboarded ahead of schedule.' },
+      { id: 'G1-02', goal: 'G1', name: 'Accredited ODeL degree programmes available', unit: 'programmes', baseline: 0, y25_26: 1, y26_27: 15, y27_28: 29, y28_29: 39, y29_30: 43, actual: 16, owner: 'DVC-AAR / QA Unit', source: 'Academic Registry', hero: false, notes: '16 credit-based ODeL programmes accredited under RQF.' },
+      { id: 'G1-03', goal: 'G1', name: 'Campus-wide WiFi coverage across all 11 campuses', unit: '%', baseline: 68, y25_26: 78, y26_27: 90, y27_28: 95, y28_29: 98, y29_30: 100, actual: 89, owner: 'CDO / ICT Directorate', source: 'ICT Infra Audit', hero: false, notes: '5,000 Mbps backbone upgraded across Nyarugenge, Huye & Busogo.' },
+      { id: 'G1-04', goal: 'G1', name: 'Institutional administrative processes digitised', unit: 'processes', baseline: 20, y25_26: 25, y26_27: 30, y27_28: 40, y28_29: 50, y29_30: 60, actual: 31, owner: 'CDO / DVC-SPA', source: 'ERP Process Audit', hero: false, notes: 'Finance, procurement & student registry workflows live in ERP.' },
+      { id: 'G1-06', goal: 'G1', name: 'Academic modules managed on unified mobile LMS', unit: '%', baseline: 40, y25_26: 65, y26_27: 90, y27_28: 100, y28_29: 100, y29_30: 100, actual: 88, owner: 'CDO / DVC-AAR', source: 'LMS Analytics', hero: false, notes: 'Lab module migration scheduled for Q3.' },
+      { id: 'G1-14', goal: 'G1', name: 'Major prolonged cybersecurity incidents disrupting services', unit: 'incidents', baseline: 1, y25_26: 0, y26_27: 0, y27_28: 0, y28_29: 0, y29_30: 0, actual: 0, owner: 'CDO / InfoSec Team', source: 'Incident Response Log', hero: false, inverse: true, notes: 'Zero critical service disruptions; annual vulnerability audit passed.' },
+
+      { id: 'G2-01', goal: 'G2', name: 'Cumulative student enrolment (UG, PG, PhD & ODeL)', unit: 'students', baseline: 31000, y25_26: 33400, y26_27: 36900, y27_28: 43400, y28_29: 50000, y29_30: 60100, actual: 37450, owner: 'DVC-AAR / Registrar', source: 'UR Student Registry', hero: true, notes: 'Includes 33,401 on-campus + expanding UR Online intake.' },
+      { id: 'G2-02', goal: 'G2', name: 'Graduate employment rate within 6 months of graduation', unit: '%', baseline: 57, y25_26: 58, y26_27: 60, y27_28: 66, y28_29: 70, y29_30: 74, actual: 61, owner: 'DVC-AAR / Career Centres', source: 'Graduate Tracer Study', hero: true, notes: '3/6/12-month tracer tracking operational across all 7 colleges.' },
+      { id: 'G2-04', goal: 'G2', name: 'Colleges with operational Industry Advisory Panels', unit: 'colleges', baseline: 0, y25_26: 2, y26_27: 4, y27_28: 6, y28_29: 7, y29_30: 7, actual: 7, owner: 'College Principals', source: 'College AOP Returns', hero: false, notes: 'All 7 Colleges inaugurated employer advisory panels ahead of schedule.' },
+      { id: 'G2-05', goal: 'G2', name: 'Annual Continuing Professional Development (CPD) learners', unit: 'learners', baseline: 300, y25_26: 1000, y26_27: 2000, y27_28: 3000, y28_29: 4000, y29_30: 5000, actual: 2140, owner: 'CBE / UR Online', source: 'UR Online CPD Registry', hero: false, notes: 'Strong uptake in public finance, health leadership & data science.' },
+      { id: 'G2-06', goal: 'G2', name: 'Professional UG programmes with mandatory Work-Integrated Learning', unit: '%', baseline: 25, y25_26: 40, y26_27: 50, y27_28: 80, y28_29: 95, y29_30: 100, actual: 55, owner: 'DVC-AAR / Deans', source: 'Curriculum Quality Audit', hero: false, notes: 'WIL placement agreements signed with RDB & PSF employers.' },
+
+      { id: 'G3-01', goal: 'G3', name: 'Annual peer-reviewed publications (Scopus / Web of Science)', unit: 'publications', baseline: 718, y25_26: 1250, y26_27: 2442, y27_28: 3878, y28_29: 5314, y29_30: 6750, actual: 2490, owner: 'DVC-AAR / DRIR', source: 'Scopus / WoS Audit', hero: true, notes: 'Flagship niches in One Health, AI, and Climate-Smart Agriculture driving output.' },
+      { id: 'G3-02', goal: 'G3', name: 'PhD students actively in training at UR', unit: 'PhD students', baseline: 592, y25_26: 660, y26_27: 738, y27_28: 750, y28_29: 820, y29_30: 894, actual: 745, owner: 'DVC-AAR / Graduate School', source: 'Academic Registry', hero: false, notes: 'Sandwich PhD co-supervision active with Tier-1 partners.' },
+      { id: 'G3-04', goal: 'G3', name: 'Functional accredited research laboratories', unit: 'labs', baseline: 14, y25_26: 20, y26_27: 27, y27_28: 29, y28_29: 35, y29_30: 39, actual: 26, owner: 'DVC-AAR / Estates', source: 'Lab Infrastructure Audit', hero: false, notes: '241 new scientific instruments under procurement.' },
+      { id: 'G3-05', goal: 'G3', name: 'Post-ACE financial sustainability plans operational (of 9 ACEs)', unit: 'ACEs', baseline: 0, y25_26: 2, y26_27: 3, y27_28: 6, y28_29: 8, y29_30: 9, actual: 4, owner: 'DVC-AAR / ACE Directors', source: 'ACE Sustainability Review', hero: false, notes: '4 ACEs transitioned to regional fee-paying & grant-funded models.' },
+      { id: 'G3-09', goal: 'G3', name: 'Annual Intellectual Property (IP) disclosures & patents filed', unit: 'IP outputs', baseline: 4, y25_26: 15, y26_27: 26, y27_28: 69, y28_29: 88, y29_30: 107, actual: 28, owner: 'TTCC / Innovation Hub', source: 'ORIA / TTCC Registry', hero: false, notes: 'TTCC operationalised under Law No. 053/2024 Article 12.' },
+
+      { id: 'G4-01', goal: 'G4', name: 'Student on-campus accommodation capacity (% of enrolment)', unit: '%', baseline: 23, y25_26: 24, y26_27: 28, y27_28: 40, y28_29: 50, y29_30: 60, actual: 26.5, owner: 'DVC-Finance / Estates', source: 'Estates & Welfare Audit', hero: true, notes: 'Awaiting EDCF G+4 hostel handover across Rukara, Busogo & Huye.' },
+      { id: 'G4-03', goal: 'G4', name: 'PhD-qualified academic staff headcount', unit: 'PhD staff', baseline: 477, y25_26: 487, y26_27: 500, y27_28: 540, y28_29: 575, y29_30: 600, actual: 508, owner: 'HR Directorate / DVC-AAR', source: 'HR MIS Records', hero: false, notes: 'Brain-gain & diaspora professor scheme launched.' },
+      { id: 'G4-07', goal: 'G4', name: 'Female representation in senior academic leadership (Deans+)', unit: '%', baseline: 14, y25_26: 15, y26_27: 20, y27_28: 25, y28_29: 28, y29_30: 30, actual: 21, owner: 'VC Office / HR', source: 'HR Governance Audit', hero: false, notes: 'Leadership succession & parity guidelines enforced.' },
+
+      { id: 'G5-01', goal: 'G5', name: 'Non-government income share (% of total UR revenue)', unit: '%', baseline: 9.5, y25_26: 11, y26_27: 14, y27_28: 18, y28_29: 22, y29_30: 25, actual: 14.8, owner: 'DVC-Finance / UR Holding', source: 'Audited Financial Statements', hero: true, notes: 'Driven by UR Online, CPD courses & external research overheads.' },
+      { id: 'G5-02', goal: 'G5', name: 'Annual external development & research grants mobilised', unit: 'RWF Bn', baseline: 35.8, y25_26: 39.0, y26_27: 45.0, y27_28: 50.0, y28_29: 55.0, y29_30: 60.0, actual: 46.2, owner: 'DVC-SPA / DVC-Finance', source: 'SPIU Grant Ledger', hero: false, notes: '128 active funding partners; Development Partner Forum held.' },
+      { id: 'G5-09', goal: 'G5', name: 'Colleges operating with decentralised budget autonomy', unit: 'colleges', baseline: 0, y25_26: 2, y26_27: 4, y27_28: 7, y28_29: 7, y29_30: 7, actual: 4, owner: 'DVC-Finance / Principals', source: 'ERP Finance Module', hero: false, notes: 'Needs-based allocation formula rolled out to CMHS, CST, CBE & CAFF.' },
+
+      { id: 'G6-01', goal: 'G6', name: 'International student share (% of total UR enrolment)', unit: '%', baseline: 1.8, y25_26: 2.2, y26_27: 3.0, y27_28: 4.0, y28_29: 5.2, y29_30: 6.5, actual: 3.1, owner: 'DVC-SPA / Global Office', source: 'UR Admissions Registry', hero: false, notes: 'Targeted EAC & Study Rwanda scholarship recruitment active.' },
+      { id: 'G6-03', goal: 'G6', name: 'Joint or double-degree programmes with global partners', unit: 'programmes', baseline: 0, y25_26: 0, y26_27: 1, y27_28: 2, y28_29: 4, y29_30: 5, actual: 1, owner: 'DVC-AAR / Global Office', source: 'Academic Senate Approvals', hero: false, notes: 'First joint MSc in Health Data Science launched.' },
+      { id: 'G6-05', goal: 'G6', name: 'Active alumni contributors on UR Alumni Platform', unit: 'alumni', baseline: 0, y25_26: 450, y26_27: 1200, y27_28: 2000, y28_29: 6000, y29_30: 10000, actual: 1320, owner: 'VC Office / Alumni Desk', source: 'UR Alumni Portal', hero: false, notes: 'Digital alumni database cleaned & mentoring network active.' },
+      { id: 'G6-07', goal: 'G6', name: 'Tier-1 international strategic university partners', unit: 'partners', baseline: 4, y25_26: 5, y26_27: 6, y27_28: 8, y28_29: 9, y29_30: 10, actual: 6, owner: 'VC / Global Engagement', source: 'Partnership Registry', hero: false, notes: 'Target 8–10 Tier-1 partners driving co-PI research & QS ranking.' }
+    ];
+
+    const DEFAULT_COLLEGES = [
+      { code: 'CAFF', name: 'College of Agriculture, Forestry & Food Sciences', campus: 'Busogo / Musanze', enrolment: 4120, phdPct: 32.5, industryPanel: 'Operational', aopExecution: 88, focus: 'Climate-Smart Agriculture, food security & agri-tech.', flagshipNote: 'Busogo Campus Master Plan & EDCF teaching complex.' },
+      { code: 'CASS', name: 'College of Arts and Social Sciences', campus: 'Huye', enrolment: 5840, phdPct: 29.0, industryPanel: 'Operational', aopExecution: 84, focus: 'Policy research, social justice & humanities.', flagshipNote: 'Huye Campus humanities hub & national governance briefs.' },
+      { code: 'CBE', name: 'College of Business and Economics', campus: 'Huye', enrolment: 7210, phdPct: 27.5, industryPanel: 'Operational', aopExecution: 85, focus: 'CPD lifelong learning hub & UR Holding Ltd oversight.', flagshipNote: 'Financial sustainability & entrepreneurial incubation.' },
+      { code: 'CE', name: 'College of Education', campus: 'Rukara / Kayonza', enrolment: 8930, phdPct: 24.0, industryPanel: 'Operational', aopExecution: 82, focus: 'National teacher training hub, ODeL & digital pedagogy.', flagshipNote: 'Rukara EDCF student hostel expansion (+1,504 beds).' },
+      { code: 'CMHS', name: 'College of Medicine and Health Sciences', campus: 'Huye + Remera Teaching Hospitals', enrolment: 6150, phdPct: 41.2, industryPanel: 'Operational', aopExecution: 92, focus: 'Vaccine education, One Health & CEBE Phase 2.', flagshipNote: 'AfDB USD 33.64M Biomedical Innovation Park.' },
+      { code: 'CST', name: 'College of Science and Technology', campus: 'Nyarugenge / Kigali', enrolment: 6540, phdPct: 38.6, industryPanel: 'Operational', aopExecution: 90, focus: 'Digital transformation, AI research niche & TTCC.', flagshipNote: 'UR Online (UR Flex) tech backbone & smart labs.' },
+      { code: 'CVAS', name: 'College of Veterinary and Animal Sciences', campus: 'Nyagatare', enrolment: 1310, phdPct: 30.0, industryPanel: 'Operational', aopExecution: 86, focus: 'One Health rural component & livestock industry MoUs.', flagshipNote: 'Nyagatare campus veterinary clinic & research farm.' }
+    ];
+
+    const PRIORITY_PROJECTS = [
+      { id: 1, goal: 'G4', title: 'Campus Infrastructure Expansion (EDCF)', scale: 'USD 192.5M (GoR: 29.5M, Loan: 162.9M)', mechanism: 'Concessional Financing / Export-Import Bank', stage: 'Advanced', isPPP: false, status: 'Feasibility completed Feb 2026; financing partner agreement at final stage. 4,512 hostel beds & teaching complexes at Nyarugenge, Rukara, Busogo, Huye.', desc: 'Comprehensive campus master development delivering ~100,740m² GFA across 4 campuses.' },
+      { id: 2, goal: 'G3/G2', title: 'CEBE Phase 2 - Biomedical Innovation Park', scale: 'USD 33.64M (AfDB: 29.85M, GoR: 3.79M)', mechanism: 'AfDB ADF+ADB Loan & Counterpart', stage: 'Advanced', isPPP: false, status: 'Project Appraisal Report completed Jan 2026. Loan Agreement at advanced stage. Co-locating advanced labs, e-health & training.', desc: 'Positions UR and Rwanda as a continental leader in biomedical engineering & health tech.' },
+      { id: 3, goal: 'G1', title: 'UR Online & AI Integration (UR Flex)', scale: 'USD 65–75M total (MCF initial: USD 17.9M)', mechanism: 'Development Partner Co-Investment & ODeL Reinvestment', stage: 'Advanced', isPPP: false, status: 'Proposal submitted; Mastercard Foundation partnership active. Target: 19,500 online students & 43 ODeL programmes by 2030.', desc: 'Dedicated digital learning enterprise decoupling enrolment growth from brick-and-mortar constraints.' },
+      { id: 4, goal: 'G4', title: 'Student Hostel PPP Programme (Phase 2)', scale: 'USD 50–70M', mechanism: 'Private Developers + UR Land Equity (*)', stage: 'PPP', isPPP: true, status: 'Campus master plans in development. Target: 8,000+ additional beds at Nyarugenge/Gikondo and Nyagatare to reach 60% on-campus target.', desc: 'Leveraging campus land equity to mobilize private concessionaires and student housing bonds.' },
+      { id: 5, goal: 'G3', title: 'Research Infrastructure & Flagship Niche Centres', scale: 'USD 35–45M', mechanism: 'World Bank ACE Continuation, EU Horizon & SIDA', stage: 'Proposal', isPPP: false, status: 'Design phase. Equipping 39 functional labs, 6 greenhouses and 4 research farms across colleges.', desc: 'Consolidating 5 designated flagship research niches aligned with Vision 2050.' },
+      { id: 6, goal: 'G3/G5', title: 'Vaccine Production Scale-Up & UR Bio-Park', scale: 'USD 30–50M', mechanism: 'EU, Africa CDC, Wellcome Trust & Biopharma PPP', stage: 'PPP', isPPP: true, status: 'Feasibility study initiating 2026. Scaling foundational EU vaccine research into purpose-built biomanufacturing park.', desc: 'Establishing pilot production facilities and health security research ecosystems.' }
+    ];
+
+    const REFORM_CLUSTERS = [
+      { id: 1, name: 'Legal Framework Reform', status: 'Completed', badge: 'bg-emerald-950 text-emerald-300 border border-emerald-700', summary: 'Law No. 053/2024 enacted on 07/06/2024 granting UR full legal personality and administrative, academic, research, and financial autonomy.' },
+      { id: 2, name: 'Academic Restructuring', status: 'Completed', badge: 'bg-emerald-950 text-emerald-300 border border-emerald-700', summary: 'Reduced undergraduate programmes from 165 to 88; established designated home campuses for all 7 colleges.' },
+      { id: 3, name: 'Governance & Decentralisation', status: 'In Progress', badge: 'bg-sky-950 text-sky-300 border border-sky-700', summary: 'Colleges operating as primary academic and administrative units with lean HQ policy oversight (78 staff).' },
+      { id: 4, name: 'IT & Digital Transformation', status: 'Initiated', badge: 'bg-amber-950 text-amber-300 border border-amber-700', summary: 'ERP/MIS revamp, CDO model deployment, college IT help desks, and institutional AI policy rollout.' },
+      { id: 5, name: 'Financing Model Reform', status: 'Initiated', badge: 'bg-amber-950 text-amber-300 border border-amber-700', summary: 'Needs-based funding formula negotiations with MINECOFIN; college budget autonomy and reformed UR Holding Ltd KPIs.' },
+      { id: 6, name: 'Assets & Infrastructure', status: 'In Progress', badge: 'bg-sky-950 text-sky-300 border border-sky-700', summary: 'Campus master plans, University Village concept, EDCF infrastructure expansion, and student accommodation PPP pipeline.' },
+      { id: 7, name: 'People & Institutional Culture', status: 'In Progress', badge: 'bg-sky-950 text-sky-300 border border-sky-700', summary: 'Special academic staff statute, structured workload (60% teaching), staff retention strategy, and wellness centres.' }
+    ];
+
+    const STRATEGIC_RISKS = [
+      { id: 1, name: 'Government funding formula not revised: structural underfunding continues', rating: 'HIGH', mitigation: 'Formal compact negotiations with MINEDUC/MINECOFIN by 2027; World Bank advocacy; Activity-Based Costing.', owner: 'Vice Chancellor' },
+      { id: 2, name: 'ACE funding cliff (2026-2027): research centres face revenue decline', rating: 'HIGH', mitigation: 'Post-ACE Sustainability Plans for all 9 Centres of Excellence by 2026; Research Premium in formula.', owner: 'DVC Academic & Research' },
+      { id: 3, name: 'Senior leadership instability disrupts strategic continuity', rating: 'HIGH', mitigation: 'Minimum 5-year contracts under Law 053/2024 HR autonomy; succession planning; mandatory leadership induction.', owner: 'Board Chair' },
+      { id: 4, name: 'Reform implementation overload (7 clusters + 6 goals)', rating: 'HIGH', mitigation: 'Phased implementation plan; Strategic Implementation Committee quarterly review; Master KPI Scorecard.', owner: 'Vice Chancellor' },
+      { id: 5, name: 'ERP/MIS delays, data governance & AI integration gaps', rating: 'HIGH', mitigation: 'Dedicated MIS Programme Manager; phased rollout with World Bank TA; institutional AI Taskforce.', owner: 'Chief Digital Officer / DVC-SPA' },
+      { id: 6, name: 'Graduate employment targets not met (baseline 57% vs 74% target)', rating: 'MEDIUM', mitigation: 'Mandatory Work-Integrated Learning (WIL) by 2027; 3/6/12 month graduate tracer studies; Industry Advisory Panels.', owner: 'DVC Academic & Research' }
+    ];
+
+    // -------------------------------------------------------------------------
+    // 2. RBAC AUTHENTICATION, AUDIT TRAIL & LOCALSTORAGE PERSISTENCE
+    // -------------------------------------------------------------------------
+    const ROLE_CONFIG = {
+      planner: {
+        tier: 'TIER 1: CUSTODIAN',
+        userTitle: 'Strategic Planning & M&E Unit',
+        passcode: 'UR-PLAN-2026',
+        banner: 'Custodian Mode: Read/Write enabled — Submit KPI updates, College AOP returns & manage quarterly window.'
+      },
+      management: {
+        tier: 'TIER 2: MANAGEMENT',
+        userTitle: 'VC / DVC / College Principal',
+        passcode: 'UR-MGMT-2026',
+        banner: 'Executive Management Mode: Review/Approve pending custodian entries & issue variance directives.'
+      },
+      board: {
+        tier: 'TIER 3: READ-ONLY',
+        userTitle: 'Board of Governors / Partners',
+        passcode: 'UR-BOARD-2026',
+        banner: 'Board & Stakeholder Governance Mode: Strict Read-Only Oversight (Article 17, Law No. 053/2024).'
+      }
+    };
+
+    const STORAGE_KEY_KPIS = 'ur_sp_2025_2030_kpis_v3';
+    const STORAGE_KEY_COLLEGES = 'ur_sp_2025_2030_colleges_v3';
+    const STORAGE_KEY_PROJECTS = 'ur_sp_2025_2030_projects_v3';
+    const STORAGE_KEY_AUDIT = 'ur_sp_2025_2030_audit_v3';
+    const STORAGE_KEY_LOCK = 'ur_sp_2025_2030_lock_v3';
+    const STORAGE_KEY_ROLE = 'ur_sp_2025_2030_role_v3';
+
+    let kpiData = [];
+    let collegeData = [];
+    let projectData = [];
+    let auditLogs = [];
+    let isWindowLocked = false;
+    let activeRole = 'planner';
+    let currentTab = 'overview';
+    let currentGoalFilter = 'ALL';
+    let selectedCollegeTile = 'ALL';
+    let currentProjectFilter = 'ALL';
+
+    let trajectoryChartInstance = null;
+    let collegeBarChartInstance = null;
+    let genderDonutChartInstance = null;
+    let stemBarChartInstance = null;
+    let revenueDonutChartInstance = null;
+
+    const DEFAULT_AUDIT_LOGS = [
+      {
+        timestamp: '2026-11-12 16:40 CAT',
+        actor: 'Tier 2: DVC-AAR & Research',
+        action: 'Management Approved',
+        entity: 'G3-01 (Peer-Reviewed Publications)',
+        details: 'Verified Scopus Q2 audit pull: 2,490 publications (+2.0% above Y2 milestone).',
+        status: 'Verified'
+      },
+      {
+        timestamp: '2026-11-10 09:45 CAT',
+        actor: 'Tier 1: M&E Custodian (CST Focal Point)',
+        action: 'KPI Updated',
+        entity: 'G1-06 (Unified Mobile LMS Modules)',
+        details: 'Actual updated from 82% -> 88% (Target 90%). Lab module migration scheduled for Q3.',
+        status: 'Pending Approval'
+      },
+      {
+        timestamp: '2026-11-08 14:15 CAT',
+        actor: 'Tier 1: M&E Custodian (CMHS Focal Point)',
+        action: 'College Return Submitted',
+        entity: 'CMHS (Annex C.3 Q2 Return)',
+        details: 'Enrolment: 6,150 | PhD Faculty: 41.2% | AOP Execution: 92% | Industry Panel: Operational.',
+        status: 'Verified'
+      },
+      {
+        timestamp: '2026-11-05 11:15 CAT',
+        actor: 'Tier 1: M&E Custodian (DVC-Finance)',
+        action: 'KPI Updated',
+        entity: 'G4-01 (Student On-Campus Accommodation)',
+        details: 'Actual updated from 24.5% -> 26.5% (Target 28%). Awaiting EDCF G+4 hostel handover.',
+        status: 'Pending Approval'
+      }
+    ];
+
+    function loadInitialState() {
+      const savedKpis = localStorage.getItem(STORAGE_KEY_KPIS);
+      const savedColleges = localStorage.getItem(STORAGE_KEY_COLLEGES);
+      const savedProjects = localStorage.getItem(STORAGE_KEY_PROJECTS);
+      const savedAudit = localStorage.getItem(STORAGE_KEY_AUDIT);
+      const savedLock = localStorage.getItem(STORAGE_KEY_LOCK);
+      const savedRole = localStorage.getItem(STORAGE_KEY_ROLE);
+
+      if (savedKpis) {
+        kpiData = JSON.parse(savedKpis);
+      } else {
+        kpiData = JSON.parse(JSON.stringify(DEFAULT_KPIS)).map(k => ({
+          ...k,
+          verificationStatus: (k.id === 'G1-06' || k.id === 'G4-01') ? 'Pending Approval' : 'Verified',
+          managementDirective: k.id === 'G4-01' ? 'Expedite Phase 2A Hostel PPP investor prospectus for Q3 DPF.' : ''
+        }));
+      }
+
+      if (savedColleges) {
+        collegeData = JSON.parse(savedColleges);
+      } else {
+        collegeData = JSON.parse(JSON.stringify(DEFAULT_COLLEGES)).map(c => ({
+          ...c,
+          endorsementStatus: (c.code === 'CASS' || c.code === 'CE') ? 'Pending Endorsement' : 'Endorsed'
+        }));
+      }
+
+      projectData = savedProjects ? JSON.parse(savedProjects) : JSON.parse(JSON.stringify(PRIORITY_PROJECTS));
+      auditLogs = savedAudit ? JSON.parse(savedAudit) : JSON.parse(JSON.stringify(DEFAULT_AUDIT_LOGS));
+      isWindowLocked = savedLock === 'true';
+      if (savedRole && ROLE_CONFIG[savedRole]) {
+        activeRole = savedRole;
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY_KPIS, JSON.stringify(kpiData));
+      localStorage.setItem(STORAGE_KEY_COLLEGES, JSON.stringify(collegeData));
+      localStorage.setItem(STORAGE_KEY_PROJECTS, JSON.stringify(projectData));
+      localStorage.setItem(STORAGE_KEY_AUDIT, JSON.stringify(auditLogs));
+      localStorage.setItem(STORAGE_KEY_LOCK, String(isWindowLocked));
+      localStorage.setItem(STORAGE_KEY_ROLE, activeRole);
+    }
+
+    function addAuditEntry(action, entity, details, status = 'Verified') {
+      const now = new Date();
+      const ts = now.toISOString().slice(0, 16).replace('T', ' ') + ' CAT';
+      const roleObj = ROLE_CONFIG[activeRole];
+      auditLogs.unshift({
+        timestamp: ts,
+        actor: `${roleObj.tier.split(':')[0]}: ${roleObj.userTitle}`,
+        action,
+        entity,
+        details,
+        status
+      });
+      saveState();
+    }
+
+    // Global quickLogin function for RBAC Access Gate
+    function quickLogin(role) {
+      completeRoleLogin(role);
+    }
+
+    function completeRoleLogin(role) {
+      activeRole = role;
+      saveState();
+      document.getElementById('authGateOverlay').classList.add('hidden');
+      document.getElementById('roleSelect').value = role;
+      applyRolePermissions();
+      refreshAllViews();
+      showToast(`Authenticated as ${ROLE_CONFIG[role].tier} — ${ROLE_CONFIG[role].userTitle}`);
+    }
+
+    function openAuthGate() {
+      document.getElementById('loginErrorMsg').classList.add('hidden');
+      document.getElementById('loginPasscodeInput').value = '';
+      document.getElementById('authGateOverlay').classList.remove('hidden');
+    }
+
+    function prefillPasscodeHint() {
+      const role = document.getElementById('loginRoleSelect').value;
+      document.getElementById('loginPasscodeInput').placeholder = `e.g. ${ROLE_CONFIG[role].passcode}`;
+    }
+
+    function authenticateWithPasscode(e) {
+      e.preventDefault();
+      const selectedRole = document.getElementById('loginRoleSelect').value;
+      const enteredPass = document.getElementById('loginPasscodeInput').value.trim();
+      const expectedPass = ROLE_CONFIG[selectedRole].passcode;
+
+      if (enteredPass !== expectedPass) {
+        const errBox = document.getElementById('loginErrorMsg');
+        errBox.textContent = `Authentication Failed: Invalid passcode for ${ROLE_CONFIG[selectedRole].tier}. Expected "${expectedPass}".`;
+        errBox.classList.remove('hidden');
+        return;
+      }
+
+      completeRoleLogin(selectedRole);
+    }
+
+    function handleQuickRoleSwitch() {
+      const role = document.getElementById('roleSelect').value;
+      completeRoleLogin(role);
+    }
+
+    function applyRolePermissions() {
+      const cfg = ROLE_CONFIG[activeRole];
+      document.getElementById('activeTierLabel').textContent = cfg.tier.split(':')[0];
+      document.getElementById('activeUserLabel').textContent = cfg.userTitle;
+      document.getElementById('roleBannerText').textContent = cfg.banner;
+
+      const submitKpiBtn = document.getElementById('headerSubmitKpiBtn');
+      const syncHubBtn = document.getElementById('headerSyncHubBtn');
+      const govSyncBtn = document.getElementById('govSyncHubBtn');
+      const pendingBtn = document.getElementById('headerPendingReviewBtn');
+      const readOnlyBadge = document.getElementById('headerReadOnlyBadge');
+      const submitCollegeBtn = document.getElementById('submitCollegeReturnBtn');
+      const toggleLockBtn = document.getElementById('toggleWindowLockBtn');
+      const resetDemoBtn = document.getElementById('resetDemoBtn');
+
+      submitKpiBtn.classList.add('hidden');
+      syncHubBtn.classList.add('hidden');
+      if (govSyncBtn) govSyncBtn.classList.add('hidden');
+      pendingBtn.classList.add('hidden');
+      readOnlyBadge.classList.add('hidden');
+      submitCollegeBtn.classList.add('hidden');
+      toggleLockBtn.classList.add('hidden');
+      resetDemoBtn.classList.add('hidden');
+
+      if (activeRole === 'planner') {
+        submitKpiBtn.classList.remove('hidden');
+        syncHubBtn.classList.remove('hidden');
+        if (govSyncBtn) govSyncBtn.classList.remove('hidden');
+        submitCollegeBtn.classList.remove('hidden');
+        toggleLockBtn.classList.remove('hidden');
+        resetDemoBtn.classList.remove('hidden');
+      } else if (activeRole === 'management') {
+        pendingBtn.classList.remove('hidden');
+        toggleLockBtn.classList.remove('hidden');
+        resetDemoBtn.classList.remove('hidden');
+      } else {
+        readOnlyBadge.classList.remove('hidden');
+      }
+
+      updateWindowLockUI();
+    }
+
+    function updateWindowLockUI() {
+      const headerBadge = document.getElementById('windowStatusBadge');
+      const govTitle = document.getElementById('windowLockTitle');
+      const govSub = document.getElementById('windowLockSubtitle');
+      const lockBtn = document.getElementById('toggleWindowLockBtn');
+      const { label } = getSelectedPeriodInfo();
+
+      if (isWindowLocked) {
+        headerBadge.className = 'px-2 py-0.5 text-[11px] font-bold rounded bg-rose-950/90 text-rose-300 border border-rose-700';
+        headerBadge.innerHTML = `<i class="fa-solid fa-lock mr-1"></i>Reporting Window: LOCKED`;
+        govTitle.textContent = `${label} Reporting Window: LOCKED (15-Day Cutoff Enforced)`;
+        govSub.textContent = 'Custodian data entry suspended for Board & SIC Quarterly Traffic-Light Review.';
+        lockBtn.innerHTML = `<i class="fa-solid fa-lock-open mr-1"></i>Unlock Window`;
+        lockBtn.className = 'px-3.5 py-2 rounded-lg font-bold text-xs bg-emerald-600 hover:bg-emerald-500 text-white shadow transition cursor-pointer';
+      } else {
+        headerBadge.className = 'px-2 py-0.5 text-[11px] font-bold rounded bg-emerald-950/80 text-emerald-300 border border-emerald-700/60';
+        headerBadge.innerHTML = `<i class="fa-solid fa-lock-open mr-1"></i>Reporting Window: OPEN`;
+        govTitle.textContent = `${label} Reporting Window: OPEN`;
+        govSub.textContent = 'Custodians may submit KPI actuals and Annex C.3 College AOP returns.';
+        lockBtn.innerHTML = `<i class="fa-solid fa-lock mr-1"></i>Lock Window`;
+        lockBtn.className = 'px-3.5 py-2 rounded-lg font-bold text-xs bg-[#0078D4] hover:bg-[#0063B1] text-white shadow transition cursor-pointer';
+      }
+    }
+
+    function toggleQuarterlyWindowLock() {
+      if (activeRole === 'board') return;
+      isWindowLocked = !isWindowLocked;
+      const { label } = getSelectedPeriodInfo();
+      addAuditEntry(
+        isWindowLocked ? 'Window Locked' : 'Window Unlocked',
+        `Reporting Cycle (${label})`,
+        isWindowLocked ? 'Enforced 15-day post-quarter freeze for SIC & Board review.' : 'Re-opened quarterly reporting window for custodian updates.',
+        'Verified'
+      );
+      updateWindowLockUI();
+      refreshAllViews();
+      showToast(isWindowLocked ? 'Quarterly reporting window LOCKED.' : 'Quarterly reporting window UNLOCKED.');
+    }
+
+    // -------------------------------------------------------------------------
+    // 3. NAVIGATION, SLICERS & FILTERING
+    // -------------------------------------------------------------------------
+    function switchTab(tabId) {
+      currentTab = tabId;
+      const headings = {
+        overview: 'Strategic Plan M&E',
+        goals: '6 Goals & KPI Scorecard',
+        colleges: '7 Colleges & Campuses',
+        projects: 'Priority Projects (Annex C)',
+        governance: 'Governance & Audit Trail'
+      };
+      document.getElementById('canvasMainHeading').textContent = headings[tabId] || 'Strategic Plan M&E';
+
+      ['overview', 'goals', 'colleges', 'projects', 'governance'].forEach(t => {
+        const viewEl = document.getElementById(`view-${t}`);
+        const tabBtn = document.getElementById(`tab-${t}`);
+        if (t === tabId) {
+          viewEl.classList.remove('hidden');
+          tabBtn.classList.add('active');
+        } else {
+          viewEl.classList.add('hidden');
+          tabBtn.classList.remove('active');
+        }
+      });
+
+      if (tabId === 'overview') {
+        renderAllOverviewCharts();
+      }
+    }
+
+    function selectCollegeTile(code) {
+      selectedCollegeTile = code;
+      document.querySelectorAll('.pbi-tile').forEach(btn => {
+        if (btn.dataset.col === code) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      refreshAllViews();
+      if (code !== 'ALL') {
+        showToast(`Filtered executive report by College: ${code}`);
+      }
+    }
+
+    function handleCampusSlicer() {
+      const campusVal = document.getElementById('slicerCampusSelect').value;
+      if (campusVal === 'ALL') {
+        selectCollegeTile('ALL');
+      } else {
+        const matched = collegeData.find(c => c.campus.includes(campusVal.split(' ')[0]));
+        if (matched) selectCollegeTile(matched.code);
+      }
+    }
+
+    function syncGlobalSearch() {
+      const val = document.getElementById('globalHeaderSearch').value;
+      document.getElementById('kpiSearchInput').value = val;
+      if (val.trim().length > 0 && currentTab !== 'goals') {
+        switchTab('goals');
+      }
+      renderMasterKpiTable();
+    }
+
+    function jumpToGoal(goalCode) {
+      switchTab('goals');
+      setGoalFilter(goalCode);
+    }
+
+    function jumpToPendingApprovals() {
+      switchTab('goals');
+      document.getElementById('ragFilterSelect').value = 'PENDING';
+      renderMasterKpiTable();
+    }
+
+    function handleFilterChange() {
+      updateWindowLockUI();
+      refreshAllViews();
+    }
+
+    function resetToBaselineData() {
+      if (activeRole === 'board') return;
+      localStorage.removeItem(STORAGE_KEY_KPIS);
+      localStorage.removeItem(STORAGE_KEY_COLLEGES);
+      localStorage.removeItem(STORAGE_KEY_PROJECTS);
+      localStorage.removeItem(STORAGE_KEY_AUDIT);
+      localStorage.removeItem(STORAGE_KEY_LOCK);
+      loadInitialState();
+      applyRolePermissions();
+      refreshAllViews();
+      showToast('Restored validated 2025–2030 Strategic Plan baseline & milestone figures.');
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. KPI CALCULATIONS & RAG ENGINE
+    // -------------------------------------------------------------------------
+    function getSelectedPeriodInfo() {
+      const yearKey = document.getElementById('yearSelect').value;
+      const quarter = document.getElementById('quarterSelect').value;
+      const yearLabels = {
+        baseline: '2024/25 Baseline',
+        y25_26: '2025/26 (Year 1)',
+        y26_27: '2026/27 (Year 2)',
+        y27_28: '2027/28 (Mid-Term)',
+        y28_29: '2028/29 (Year 4)',
+        y29_30: '2029/30 (End Target)'
+      };
+      return { yearKey, quarter, label: `${yearLabels[yearKey]} • ${quarter}` };
+    }
+
+    function evaluateKpiStatus(kpi, yearKey = 'y26_27') {
+      if (kpi.manualStatus && kpi.manualStatus !== 'AUTO') {
+        return kpi.manualStatus;
+      }
+      if (kpi.inverse) {
+        return kpi.actual <= kpi[yearKey] ? 'On Track' : 'Off Track';
+      }
+      const milestone = kpi[yearKey] || kpi.y26_27;
+      if (milestone === 0) return 'On Track';
+      const ratio = kpi.actual / milestone;
+      if (ratio >= 0.95) return 'On Track';
+      if (ratio >= 0.80) return 'At Risk';
+      return 'Off Track';
+    }
+
+    function calculatePeriodVariance(kpi, yearKey = 'y26_27') {
+      const target = kpi[yearKey];
+      if (kpi.inverse) {
+        return kpi.actual === 0 ? 0 : -100;
+      }
+      if (!target || target === 0) return 0;
+      return (((kpi.actual - target) / target) * 100).toFixed(1);
+    }
+
+    function calculate2030Progress(kpi) {
+      if (kpi.inverse) {
+        return kpi.actual === 0 ? 100 : 0;
+      }
+      const span = kpi.y29_30 - kpi.baseline;
+      if (span <= 0) return kpi.actual >= kpi.y29_30 ? 100 : 0;
+      const pct = ((kpi.actual - kpi.baseline) / span) * 100;
+      return Math.max(0, Math.min(100, Math.round(pct)));
+    }
+
+    function formatValue(val, unit) {
+      if (unit === '%') return `${val}%`;
+      if (unit === 'RWF Bn') return `RWF ${val}B`;
+      if (typeof val === 'number') return val.toLocaleString();
+      return val;
+    }
+
+    function getRagBadgeHtml(status) {
+      if (status === 'On Track') {
+        return `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-950/90 text-emerald-300 border border-emerald-700"><span class="w-2 h-2 rounded-full bg-emerald-400"></span>On Track</span>`;
+      }
+      if (status === 'At Risk') {
+        return `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-950/90 text-amber-300 border border-amber-700"><span class="w-2 h-2 rounded-full bg-amber-400"></span>At Risk</span>`;
+      }
+      return `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-rose-950/90 text-rose-300 border border-rose-700"><span class="w-2 h-2 rounded-full bg-rose-500"></span>Off Track</span>`;
+    }
+
+    // -------------------------------------------------------------------------
+    // 5. RENDER OVERVIEW VIEW (POWER BI DARK CHARTS + HERO KPI CARDS)
+    // -------------------------------------------------------------------------
+    function renderOverview() {
+      const { yearKey, label } = getSelectedPeriodInfo();
+      document.getElementById('heroPeriodLabel').textContent = label;
+
+      const pendingCount = kpiData.filter(k => k.verificationStatus === 'Pending Approval').length;
+      document.getElementById('pendingCountBadge').textContent = pendingCount;
+
+      // Update Top Right Callout Cards based on selected College Tile
+      const activeColleges = selectedCollegeTile === 'ALL'
+        ? collegeData
+        : collegeData.filter(c => c.code === selectedCollegeTile);
+      const totalEnrol = activeColleges.reduce((acc, c) => acc + c.enrolment, 0);
+      const onTrackKpis = kpiData.filter(k => evaluateKpiStatus(k, yearKey) === 'On Track').length;
+      const onTrackPct = Math.round((onTrackKpis / kpiData.length) * 100);
+
+      document.getElementById('topCalloutEnrolment').textContent = totalEnrol.toLocaleString();
+      document.getElementById('topCalloutOnTrack').textContent = `${onTrackPct}% On-Track • 88 UG`;
+
+      // Render 6 Hero KPI Cards
+      const heroKpis = kpiData.filter(k => k.hero);
+      const heroGrid = document.getElementById('heroKpiGrid');
+      heroGrid.innerHTML = heroKpis.map(kpi => {
+        const status = evaluateKpiStatus(kpi, yearKey);
+        const progress = calculate2030Progress(kpi);
+        const periodTarget = kpi[yearKey];
+        const barColor = status === 'On Track' ? 'bg-emerald-500' : (status === 'At Risk' ? 'bg-amber-400' : 'bg-rose-500');
+        const verifyPill = kpi.verificationStatus === 'Verified'
+          ? `<span class="text-[10px] font-bold text-emerald-400"><i class="fa-solid fa-circle-check mr-0.5"></i>Verified</span>`
+          : `<span class="text-[10px] font-bold text-amber-400"><i class="fa-solid fa-hourglass-half mr-0.5"></i>Pending Mgmt</span>`;
+
+        return `
+          <div onclick="jumpToGoal('${kpi.goal}')" class="pbi-card p-4 hover:border-[#38BDF8] transition cursor-pointer flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-2">
+                <div class="flex items-center gap-1.5">
+                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wider bg-[#004C8C] text-sky-200">
+                    ${kpi.goal} • ${kpi.id}
+                  </span>
+                  ${verifyPill}
+                </div>
+                ${getRagBadgeHtml(status)}
+              </div>
+              <h4 class="font-bold text-sm text-white mt-2.5 line-clamp-2">${kpi.name}</h4>
+            </div>
+
+            <div class="mt-4">
+              <div class="flex items-baseline justify-between">
+                <div>
+                  <span class="text-2xl font-extrabold text-white">${formatValue(kpi.actual, kpi.unit)}</span>
+                  <span class="text-[11px] text-slate-400 ml-1">Current Actual</span>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs font-bold text-[#38BDF8]">${formatValue(periodTarget, kpi.unit)}</span>
+                  <span class="block text-[10px] text-slate-400">Period Target</span>
+                </div>
+              </div>
+
+              <div class="mt-3">
+                <div class="flex justify-between text-[10px] font-semibold text-slate-400 mb-1">
+                  <span>Baseline: ${formatValue(kpi.baseline, kpi.unit)}</span>
+                  <span>2030 Target: <strong class="text-slate-200">${formatValue(kpi.y29_30, kpi.unit)}</strong> (${progress}%)</span>
+                </div>
+                <div class="w-full bg-[#0B101E] rounded-full h-2 overflow-hidden border border-[#2A3555]">
+                  <div class="${barColor} h-2 rounded-full transition-all duration-500" style="width: ${progress}%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      renderGoalTrafficLight();
+      if (currentTab === 'overview') {
+        renderAllOverviewCharts();
+      }
+    }
+
+    function renderAllOverviewCharts() {
+      renderCollegeBarChart();
+      renderGenderDonutChart();
+      renderTrajectoryChart();
+      renderStemBarChart();
+      renderRevenueDonutChart();
+    }
+
+    function renderCollegeBarChart() {
+      const canvas = document.getElementById('collegeBarChart');
+      if (!canvas) return;
+      if (collegeBarChartInstance) collegeBarChartInstance.destroy();
+
+      const sorted = [...collegeData].sort((a, b) => b.enrolment - a.enrolment);
+      const total = sorted.reduce((s, c) => s + c.enrolment, 0);
+
+      collegeBarChartInstance = new Chart(canvas.getContext('2d'), {
+        type: 'bar',
+        data: {
+          labels: sorted.map(c => c.code),
+          datasets: [{
+            label: 'Enrolment Share (%)',
+            data: sorted.map(c => ((c.enrolment / total) * 100).toFixed(2)),
+            backgroundColor: sorted.map(c => (selectedCollegeTile === c.code ? '#38BDF8' : '#118DFF')),
+            borderRadius: 3,
+            barThickness: 14
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => `${ctx.raw}% (${sorted[ctx.dataIndex].enrolment.toLocaleString()} students)`
+              }
+            }
+          },
+          scales: {
+            x: { grid: { color: '#1F2842' }, ticks: { color: '#94A3B8', font: { size: 10 }, callback: v => v + '%' } },
+            y: { grid: { display: false }, ticks: { color: '#E2E8F0', font: { size: 11, weight: '700' } } }
+          }
+        }
+      });
+    }
+
+    function renderGenderDonutChart() {
+      const canvas = document.getElementById('genderDonutChart');
+      if (!canvas) return;
+      if (genderDonutChartInstance) genderDonutChartInstance.destroy();
+
+      genderDonutChartInstance = new Chart(canvas.getContext('2d'), {
+        type: 'doughnut',
+        data: {
+          labels: ['Male (61.2%)', 'Female (38.8% -> Target >=40%)'],
+          datasets: [{
+            data: [61.2, 38.8],
+            backgroundColor: ['#118DFF', '#12239E'],
+            borderColor: '#151A2C',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '64%',
+          plugins: {
+            legend: { position: 'right', labels: { color: '#E2E8F0', boxWidth: 10, font: { size: 10 } } }
+          }
+        }
+      });
+    }
+
+    function renderStemBarChart() {
+      const canvas = document.getElementById('stemBarChart');
+      if (!canvas) return;
+      if (stemBarChartInstance) stemBarChartInstance.destroy();
+
+      stemBarChartInstance = new Chart(canvas.getContext('2d'), {
+        type: 'bar',
+        data: {
+          labels: ['STEM Disciplines', 'NON-STEM Disciplines'],
+          datasets: [
+            { label: 'Female %', data: [22.4, 16.4], backgroundColor: '#12239E', barThickness: 20 },
+            { label: 'Male %', data: [37.1, 24.1], backgroundColor: '#118DFF', barThickness: 20 }
+          ]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { color: '#CBD5E1', boxWidth: 10, font: { size: 10 } } }
+          },
+          scales: {
+            x: { stacked: true, grid: { color: '#1F2842' }, ticks: { color: '#94A3B8', font: { size: 10 }, callback: v => v + '%' } },
+            y: { stacked: true, grid: { display: false }, ticks: { color: '#E2E8F0', font: { size: 11, weight: '700' } } }
+          }
+        }
+      });
+    }
+
+    function renderRevenueDonutChart() {
+      const canvas = document.getElementById('revenueDonutChart');
+      if (!canvas) return;
+      if (revenueDonutChartInstance) revenueDonutChartInstance.destroy();
+
+      revenueDonutChartInstance = new Chart(canvas.getContext('2d'), {
+        type: 'doughnut',
+        data: {
+          labels: ['GoR Subvention (85.2%)', 'Non-GoR / Grants / ODeL (14.8%)'],
+          datasets: [{
+            data: [85.2, 14.8],
+            backgroundColor: ['#118DFF', '#38BDF8'],
+            borderColor: '#151A2C',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '64%',
+          plugins: {
+            legend: { position: 'right', labels: { color: '#E2E8F0', boxWidth: 10, font: { size: 10 } } }
+          }
+        }
+      });
+    }
+
+    function renderTrajectoryChart() {
+      const canvas = document.getElementById('trajectoryChart');
+      if (!canvas) return;
+      const metricId = document.getElementById('chartMetricSelect').value;
+      const kpi = kpiData.find(k => k.id === metricId) || kpiData[0];
+
+      if (trajectoryChartInstance) {
+        trajectoryChartInstance.destroy();
+      }
+
+      trajectoryChartInstance = new Chart(canvas.getContext('2d'), {
+        type: 'bar',
+        data: {
+          labels: ['2024/25', '2025/26', '2026/27', '2027/28', '2028/29', '2029/30'],
+          datasets: [
+            {
+              label: `Planned (${kpi.unit})`,
+              data: [kpi.baseline, kpi.y25_26, kpi.y26_27, kpi.y27_28, kpi.y28_29, kpi.y29_30],
+              backgroundColor: '#118DFF',
+              borderRadius: 4
+            },
+            {
+              label: `Reported Actual (${kpi.actual})`,
+              data: [null, null, kpi.actual, null, null, null],
+              backgroundColor: '#F59E0B',
+              borderRadius: 4
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { color: '#CBD5E1', boxWidth: 10, font: { size: 10 } } }
+          },
+          scales: {
+            y: { beginAtZero: true, grid: { color: '#1F2842' }, ticks: { color: '#94A3B8', font: { size: 10 } } },
+            x: { grid: { display: false }, ticks: { color: '#E2E8F0', font: { size: 10, weight: '600' } } }
+          }
+        }
+      });
+    }
+
+    function renderGoalTrafficLight() {
+      const { yearKey } = getSelectedPeriodInfo();
+      const goalsMeta = [
+        { code: 'G1', title: 'G1: Digital & UR Online' },
+        { code: 'G2', title: 'G2: Academic & Employability' },
+        { code: 'G3', title: 'G3: Research & Tech Transfer' },
+        { code: 'G4', title: 'G4: People & Infrastructure' },
+        { code: 'G5', title: 'G5: Resource Mobilisation' },
+        { code: 'G6', title: 'G6: Internationalisation' }
+      ];
+
+      const container = document.getElementById('goalTrafficLightList');
+      container.innerHTML = goalsMeta.map(g => {
+        const list = kpiData.filter(k => k.goal === g.code);
+        const onTrackCount = list.filter(k => evaluateKpiStatus(k, yearKey) === 'On Track').length;
+        const pct = list.length ? Math.round((onTrackCount / list.length) * 100) : 100;
+        const aggStatus = pct >= 75 ? 'On Track' : (pct >= 50 ? 'At Risk' : 'Off Track');
+
+        return `
+          <div onclick="jumpToGoal('${g.code}')" class="p-2.5 rounded-lg border border-[#283352] hover:border-[#38BDF8] bg-[#0E1322] flex items-center justify-between gap-2 cursor-pointer transition">
+            <div>
+              <div class="font-bold text-xs text-white">${g.title}</div>
+              <div class="text-[10px] text-slate-400">${onTrackCount}/${list.length} On Track (${pct}%)</div>
+            </div>
+            ${getRagBadgeHtml(aggStatus)}
+          </div>
+        `;
+      }).join('');
+    }
+
+    // -------------------------------------------------------------------------
+    // 6. RENDER MASTER KPI SCORECARD TABLE (VIEW 2)
+    // -------------------------------------------------------------------------
+    function setGoalFilter(goalCode) {
+      currentGoalFilter = goalCode;
+      document.getElementById('slicerGoalSelect').value = goalCode;
+      document.querySelectorAll('.goal-pill-btn').forEach(btn => {
+        if (btn.dataset.goal === goalCode) {
+          btn.classList.remove('bg-[#1E263D]', 'text-slate-300');
+          btn.classList.add('bg-[#0078D4]', 'text-white');
+        } else {
+          btn.classList.remove('bg-[#0078D4]', 'text-white');
+          btn.classList.add('bg-[#1E263D]', 'text-slate-300');
+        }
+      });
+      renderMasterKpiTable();
+    }
+
+    function renderMasterKpiTable() {
+      const { yearKey } = getSelectedPeriodInfo();
+      const ragFilter = document.getElementById('ragFilterSelect').value;
+      const searchQuery = document.getElementById('kpiSearchInput').value.trim().toLowerCase();
+
+      const filtered = kpiData.filter(kpi => {
+        const matchesGoal = currentGoalFilter === 'ALL' || kpi.goal === currentGoalFilter;
+        const status = evaluateKpiStatus(kpi, yearKey);
+        const matchesRag = ragFilter === 'ALL'
+          || (ragFilter === 'PENDING' && kpi.verificationStatus === 'Pending Approval')
+          || status === ragFilter;
+        const matchesSearch = !searchQuery ||
+          kpi.id.toLowerCase().includes(searchQuery) ||
+          kpi.name.toLowerCase().includes(searchQuery) ||
+          kpi.owner.toLowerCase().includes(searchQuery) ||
+          kpi.source.toLowerCase().includes(searchQuery);
+        return matchesGoal && matchesRag && matchesSearch;
+      });
+
+      const tbody = document.getElementById('masterKpiTableBody');
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="12" class="px-4 py-8 text-center text-slate-400">No KPIs match the selected filter criteria.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(kpi => {
+        const status = evaluateKpiStatus(kpi, yearKey);
+        const variance = parseFloat(calculatePeriodVariance(kpi, yearKey));
+        const varianceColor = variance >= 0 ? 'text-emerald-400' : (variance >= -10 ? 'text-amber-400' : 'text-rose-400 font-extrabold');
+        const varianceAlert = variance < -10 ? `<span class="block text-[9px] uppercase text-rose-400 font-extrabold">&gt;10% Variance Alert</span>` : '';
+
+        const verifyBadge = kpi.verificationStatus === 'Verified'
+          ? `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-950/90 text-emerald-300 border border-emerald-700 font-bold text-[10px]"><i class="fa-solid fa-check-double"></i>Verified</span>`
+          : `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-950/90 text-amber-300 border border-amber-700 font-bold text-[10px]"><i class="fa-solid fa-clock"></i>Pending Mgmt</span>`;
+
+        let actionHtml = '';
+        if (activeRole === 'planner') {
+          if (isWindowLocked) {
+            actionHtml = `<span class="px-2 py-1 rounded bg-[#0E1322] text-slate-500 font-semibold text-[10px]"><i class="fa-solid fa-lock mr-1"></i>Locked</span>`;
+          } else {
+            actionHtml = `<button onclick="openKpiModal('${kpi.id}')" class="px-2.5 py-1 rounded bg-[#0078D4] hover:bg-[#0063B1] text-white font-semibold text-[11px] transition cursor-pointer"><i class="fa-solid fa-pen mr-1"></i>Edit</button>`;
+          }
+        } else if (activeRole === 'management') {
+          const btnStyle = kpi.verificationStatus === 'Pending Approval'
+            ? 'bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold animate-pulse'
+            : 'bg-[#1E2742] hover:bg-[#293559] text-slate-200 font-semibold';
+          actionHtml = `<button onclick="openMgmtModal('${kpi.id}')" class="px-2.5 py-1 rounded ${btnStyle} text-[11px] transition cursor-pointer"><i class="fa-solid fa-stamp mr-1"></i>Review</button>`;
+        } else {
+          actionHtml = `<span class="px-2 py-1 rounded bg-[#0E1322] text-slate-400 font-semibold text-[10px]"><i class="fa-solid fa-eye mr-1"></i>Read-Only</span>`;
+        }
+
+        const directiveHtml = kpi.managementDirective
+          ? `<div class="mt-1 px-2 py-1 rounded bg-amber-950/50 border-l-2 border-amber-400 text-[10px] text-amber-200"><strong>Mgmt Directive:</strong> ${kpi.managementDirective}</div>`
+          : '';
+
+        return `
+          <tr class="hover:bg-[#1B2238] transition">
+            <td class="px-3 py-3 font-extrabold text-[#38BDF8] whitespace-nowrap">${kpi.id}</td>
+            <td class="px-3 py-3">
+              <div class="font-bold text-white">${kpi.name}</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">${kpi.notes || ''}</div>
+              ${directiveHtml}
+            </td>
+            <td class="px-3 py-3 text-right font-medium text-slate-300 whitespace-nowrap">${formatValue(kpi.baseline, kpi.unit)}</td>
+            <td class="px-3 py-3 text-right font-bold text-sky-300 bg-[#004C8C]/20 whitespace-nowrap">${formatValue(kpi.y26_27, kpi.unit)}</td>
+            <td class="px-3 py-3 text-right font-medium text-slate-300 whitespace-nowrap">${formatValue(kpi.y27_28, kpi.unit)}</td>
+            <td class="px-3 py-3 text-right font-bold text-emerald-400 whitespace-nowrap">${formatValue(kpi.y29_30, kpi.unit)}</td>
+            <td class="px-3 py-3 text-right font-extrabold text-white bg-[#1D2642]/50 whitespace-nowrap">${formatValue(kpi.actual, kpi.unit)}</td>
+            <td class="px-3 py-3 text-right font-bold ${varianceColor} whitespace-nowrap">
+              ${variance > 0 ? '+' : ''}${variance}%
+              ${varianceAlert}
+            </td>
+            <td class="px-3 py-3 text-center whitespace-nowrap">${getRagBadgeHtml(status)}</td>
+            <td class="px-3 py-3 text-center whitespace-nowrap">${verifyBadge}</td>
+            <td class="px-3 py-3">
+              <div class="font-semibold text-slate-200">${kpi.owner}</div>
+              <div class="text-[10px] text-slate-400">${kpi.source}</div>
+            </td>
+            <td class="px-3 py-3 text-center whitespace-nowrap no-print">${actionHtml}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // -------------------------------------------------------------------------
+    // 7. RENDER 7 COLLEGES & 11 CAMPUSES (VIEW 3)
+    // -------------------------------------------------------------------------
+    function renderColleges() {
+      const displayedColleges = selectedCollegeTile === 'ALL'
+        ? collegeData
+        : collegeData.filter(c => c.code === selectedCollegeTile);
+
+      const grid = document.getElementById('collegesGrid');
+      grid.innerHTML = displayedColleges.map(col => {
+        const statusColor = col.aopExecution >= 80 ? 'bg-emerald-950 text-emerald-300 border border-emerald-700' : 'bg-amber-950 text-amber-300 border border-amber-700';
+        const statusText = col.aopExecution >= 80 ? 'On Track' : 'Accelerating';
+        const endorseBadge = col.endorsementStatus === 'Endorsed'
+          ? `<span class="text-[10px] font-bold text-emerald-400"><i class="fa-solid fa-circle-check mr-0.5"></i>Mgmt Endorsed</span>`
+          : `<span class="text-[10px] font-bold text-amber-400"><i class="fa-solid fa-clock mr-0.5"></i>Pending Endorsement</span>`;
+
+        return `
+          <div class="pbi-card p-5 flex flex-col justify-between hover:border-[#38BDF8] transition">
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-[#004C8C] text-white font-extrabold text-xs tracking-wide">${col.code}</span>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${statusColor}">${statusText} (${col.aopExecution}%)</span>
+              </div>
+              <h3 class="font-bold text-sm text-white mt-2.5 leading-snug">${col.name}</h3>
+              <div class="text-[11px] font-semibold text-sky-400 mt-1 flex items-center justify-between">
+                <span><i class="fa-solid fa-location-dot mr-1"></i>${col.campus}</span>
+                ${endorseBadge}
+              </div>
+              <p class="text-xs text-slate-300 mt-2.5 leading-relaxed">${col.focus}</p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-[#26304D] space-y-2 text-xs">
+              <div class="flex justify-between">
+                <span class="text-slate-400">Student Enrolment:</span>
+                <span class="font-bold text-white">${col.enrolment.toLocaleString()}</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">PhD-Qualified Faculty:</span>
+                <span class="font-bold text-sky-400">${col.phdPct}%</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">Industry Advisory Panel:</span>
+                <span class="font-semibold text-slate-200">${col.industryPanel}</span>
+              </div>
+              <div class="bg-[#0E1322] p-2 rounded text-[11px] text-slate-300 border border-[#26304D]">
+                <i class="fa-solid fa-star text-amber-400 mr-1"></i>${col.flagshipNote}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const tbody = document.getElementById('collegeComparisonTable');
+      tbody.innerHTML = displayedColleges.map(col => {
+        const endorsePill = col.endorsementStatus === 'Endorsed'
+          ? `<span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-700 font-bold text-[10px]">Endorsed</span>`
+          : `<span class="px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-700 font-bold text-[10px]">Pending</span>`;
+
+        let colAction = `<span class="text-slate-500 text-[10px]">Read-Only</span>`;
+        if (activeRole === 'planner' && !isWindowLocked) {
+          colAction = `<button onclick="openCollegeModal('${col.code}')" class="px-2 py-1 rounded bg-[#0078D4] hover:bg-[#0063B1] text-white font-semibold text-[10px] cursor-pointer">Update</button>`;
+        } else if (activeRole === 'management') {
+          colAction = `<button onclick="endorseCollegeReturn('${col.code}')" class="px-2 py-1 rounded bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-[10px] cursor-pointer">Endorse</button>`;
+        }
+
+        return `
+          <tr class="hover:bg-[#1B2238]">
+            <td class="px-3 py-2.5 font-bold text-white">${col.code} — ${col.name}</td>
+            <td class="px-3 py-2.5 text-slate-300">${col.campus}</td>
+            <td class="px-3 py-2.5 text-right font-bold text-white">${col.enrolment.toLocaleString()}</td>
+            <td class="px-3 py-2.5 text-right font-semibold text-sky-400">${col.phdPct}%</td>
+            <td class="px-3 py-2.5 text-center"><span class="px-2 py-0.5 rounded bg-[#0E1322] text-sky-300 border border-[#283352] font-semibold">${col.industryPanel}</span></td>
+            <td class="px-3 py-2.5 text-right font-extrabold text-white">${col.aopExecution}%</td>
+            <td class="px-3 py-2.5 text-center">${endorsePill}</td>
+            <td class="px-3 py-2.5 text-center no-print">${colAction}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function endorseCollegeReturn(code) {
+      if (activeRole !== 'management') return;
+      const idx = collegeData.findIndex(c => c.code === code);
+      if (idx !== -1) {
+        collegeData[idx].endorsementStatus = 'Endorsed';
+        addAuditEntry('Management Approved', `${code} Annex C.3 Return`, `Principal/DVC endorsed quarterly AOP return (${collegeData[idx].aopExecution}% execution).`, 'Verified');
+        renderColleges();
+        renderGovernance();
+        showToast(`Annex C.3 Quarterly AOP Return endorsed for ${code}.`);
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 8. RENDER PRIORITY PROJECTS (VIEW 4)
+    // -------------------------------------------------------------------------
+    function filterProjects(stage) {
+      currentProjectFilter = stage;
+      document.querySelectorAll('.proj-filter-btn').forEach(btn => {
+        if (btn.dataset.stage === stage) {
+          btn.classList.remove('bg-[#1E263D]', 'text-slate-300');
+          btn.classList.add('bg-[#0078D4]', 'text-white');
+        } else {
+          btn.classList.remove('bg-[#0078D4]', 'text-white');
+          btn.classList.add('bg-[#1E263D]', 'text-slate-300');
+        }
+      });
+      renderProjects();
+    }
+
+    function renderProjects() {
+      const grid = document.getElementById('projectsGrid');
+      const filtered = projectData.filter(p => {
+        if (currentProjectFilter === 'ALL') return true;
+        if (currentProjectFilter === 'PPP') return p.isPPP;
+        return p.stage === currentProjectFilter;
+      });
+
+      grid.innerHTML = filtered.map(p => {
+        const isAdvanced = p.stage === 'Advanced';
+        const borderClass = isAdvanced ? 'border-2 border-amber-400' : 'border border-[#26304D]';
+        const badgeHtml = isAdvanced
+          ? `<span class="px-2 py-0.5 rounded bg-amber-400 text-slate-950 font-extrabold text-[10px] uppercase">★ Flagship Ready</span>`
+          : (p.isPPP
+            ? `<span class="px-2 py-0.5 rounded bg-indigo-950 text-indigo-300 border border-indigo-700 font-bold text-[10px]">PPP / Blended (*)</span>`
+            : `<span class="px-2 py-0.5 rounded bg-[#0E1322] text-slate-300 border border-[#2A3555] font-semibold text-[10px]">Pipeline Proposal</span>`);
+
+        const editBtn = (activeRole === 'planner' && !isWindowLocked)
+          ? `<button onclick="openProjectModal(${p.id})" class="mt-2 w-full py-1.5 rounded bg-[#0078D4] hover:bg-[#0063B1] text-white font-semibold text-[11px] transition cursor-pointer no-print"><i class="fa-solid fa-pen mr-1"></i>Update Project Milestone</button>`
+          : '';
+
+        return `
+          <div class="pbi-card p-5 ${borderClass} flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-xs font-extrabold text-sky-400">Project #${p.id} • ${p.goal}</span>
+                ${badgeHtml}
+              </div>
+              <h3 class="font-bold text-sm text-white mt-2">${p.title}</h3>
+              <div class="mt-2 inline-block px-2.5 py-1 rounded-md bg-[#0E1322] text-sky-300 border border-[#283352] font-extrabold text-xs">
+                Investment Scale: ${p.scale}
+              </div>
+              <p class="text-xs text-slate-300 mt-2.5 leading-relaxed">${p.desc}</p>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-[#26304D] text-[11px] space-y-1">
+              <div class="text-slate-200"><strong>Financing:</strong> ${p.mechanism}</div>
+              <div class="text-emerald-400 font-medium"><i class="fa-solid fa-circle-info mr-1"></i>${p.status}</div>
+              ${editBtn}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openProjectModal(projId) {
+      if (activeRole !== 'planner' || isWindowLocked) return;
+      const proj = projectData.find(p => p.id === projId);
+      if (!proj) return;
+      document.getElementById('modalProjId').value = proj.id;
+      document.getElementById('modalProjTitle').textContent = `Project #${proj.id}: ${proj.title}`;
+      document.getElementById('modalProjScale').textContent = `Scale: ${proj.scale} | Mechanism: ${proj.mechanism}`;
+      document.getElementById('modalProjStage').value = proj.stage;
+      document.getElementById('modalProjStatus').value = proj.status;
+      document.getElementById('projectUpdateModal').classList.remove('hidden');
+    }
+
+    function closeProjectModal() {
+      document.getElementById('projectUpdateModal').classList.add('hidden');
+    }
+
+    function saveProjectUpdate(e) {
+      e.preventDefault();
+      const id = parseInt(document.getElementById('modalProjId').value, 10);
+      const stage = document.getElementById('modalProjStage').value;
+      const status = document.getElementById('modalProjStatus').value.trim();
+      const idx = projectData.findIndex(p => p.id === id);
+      if (idx !== -1) {
+        projectData[idx].stage = stage;
+        projectData[idx].status = status;
+        addAuditEntry('Project Milestone Updated', `Project #${id} (${projectData[idx].title})`, `Stage: ${stage} | Status: ${status}`, 'Verified');
+        renderProjects();
+        renderGovernance();
+        closeProjectModal();
+        showToast(`Project #${id} milestone updated & logged.`);
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 9. RENDER GOVERNANCE, AUDIT TRAIL, REFORMS & RISK REGISTER (VIEW 5)
+    // -------------------------------------------------------------------------
+    function renderGovernance() {
+      document.getElementById('auditLogCount').textContent = auditLogs.length;
+      const auditBody = document.getElementById('auditLogTableBody');
+      auditBody.innerHTML = auditLogs.map(log => {
+        const badge = log.status === 'Verified'
+          ? `<span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-700 font-bold text-[10px]">Verified</span>`
+          : `<span class="px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-700 font-bold text-[10px]">Pending Approval</span>`;
+
+        return `
+          <tr class="hover:bg-[#1B2238]">
+            <td class="px-3 py-2.5 font-mono text-[11px] text-slate-400 whitespace-nowrap">${log.timestamp}</td>
+            <td class="px-3 py-2.5 font-bold text-white whitespace-nowrap">${log.actor}</td>
+            <td class="px-3 py-2.5 font-semibold text-sky-400 whitespace-nowrap">${log.action}</td>
+            <td class="px-3 py-2.5 font-bold text-slate-200">${log.entity}</td>
+            <td class="px-3 py-2.5 text-slate-300">${log.details}</td>
+            <td class="px-3 py-2.5 text-center whitespace-nowrap">${badge}</td>
+          </tr>
+        `;
+      }).join('');
+
+      const reformGrid = document.getElementById('reformClustersGrid');
+      reformGrid.innerHTML = REFORM_CLUSTERS.map(r => `
+        <div class="p-4 rounded-xl border border-[#26304D] bg-[#0E1322] flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="font-extrabold text-xs text-sky-400">Cluster ${r.id}</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${r.badge}">${r.status}</span>
+            </div>
+            <h4 class="font-bold text-sm text-white">${r.name}</h4>
+            <p class="text-xs text-slate-300 mt-1.5 leading-relaxed">${r.summary}</p>
+          </div>
+        </div>
+      `).join('');
+
+      const tbody = document.getElementById('riskRegisterTableBody');
+      tbody.innerHTML = STRATEGIC_RISKS.map(r => {
+        const badge = r.rating === 'HIGH'
+          ? `<span class="px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-700 font-extrabold text-[10px]">HIGH</span>`
+          : `<span class="px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-700 font-extrabold text-[10px]">MEDIUM</span>`;
+
+        return `
+          <tr class="hover:bg-[#1B2238]">
+            <td class="px-3 py-2.5 font-bold text-slate-300">${r.id}</td>
+            <td class="px-3 py-2.5 font-semibold text-white">${r.name}</td>
+            <td class="px-3 py-2.5 text-center">${badge}</td>
+            <td class="px-3 py-2.5 text-slate-300">${r.mitigation}</td>
+            <td class="px-3 py-2.5 font-bold text-sky-400 whitespace-nowrap">${r.owner}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // -------------------------------------------------------------------------
+    // 10. MODALS FOR CUSTODIANS (TIER 1) & MANAGEMENT APPROVALS (TIER 2)
+    // -------------------------------------------------------------------------
+    function openKpiModal(preselectedKpiId = null) {
+      if (activeRole !== 'planner') {
+        showToast('Access Restricted: Only Tier 1 Planners & M&E Custodians can modify KPI actuals.');
+        return;
+      }
+      if (isWindowLocked) {
+        showToast('Reporting Window LOCKED: Unlock the quarterly cycle in Governance tab to edit.');
+        return;
+      }
+      const modal = document.getElementById('kpiUpdateModal');
+      if (preselectedKpiId) {
+        const targetKpi = kpiData.find(k => k.id === preselectedKpiId);
+        if (targetKpi) {
+          document.getElementById('modalGoalSelect').value = targetKpi.goal;
+        }
+      }
+      populateModalKpiDropdown(preselectedKpiId);
+      modal.classList.remove('hidden');
+    }
+
+    function closeKpiModal() {
+      document.getElementById('kpiUpdateModal').classList.add('hidden');
+    }
+
+    function populateModalKpiDropdown(selectedId = null) {
+      const goal = document.getElementById('modalGoalSelect').value;
+      const kpisForGoal = kpiData.filter(k => k.goal === goal);
+      const select = document.getElementById('modalKpiSelect');
+      select.innerHTML = kpisForGoal.map(k => `<option value="${k.id}">${k.id}: ${k.name}</option>`).join('');
+      if (selectedId) {
+        select.value = selectedId;
+      }
+      loadSelectedKpiDetails();
+    }
+
+    function loadSelectedKpiDetails() {
+      const kpiId = document.getElementById('modalKpiSelect').value;
+      const kpi = kpiData.find(k => k.id === kpiId);
+      if (!kpi) return;
+      document.getElementById('modalBaselineVal').textContent = formatValue(kpi.baseline, kpi.unit);
+      document.getElementById('modalMilestoneVal').textContent = formatValue(kpi.y26_27, kpi.unit);
+      document.getElementById('modalTargetVal').textContent = formatValue(kpi.y29_30, kpi.unit);
+      document.getElementById('modalUnitLabel').textContent = kpi.unit;
+      document.getElementById('modalActualInput').value = kpi.actual;
+      document.getElementById('modalStatusOverride').value = kpi.manualStatus || 'AUTO';
+      document.getElementById('modalNotesInput').value = kpi.notes || '';
+    }
+
+    function saveKpiUpdate(e) {
+      e.preventDefault();
+      if (activeRole !== 'planner' || isWindowLocked) return;
+      const kpiId = document.getElementById('modalKpiSelect').value;
+      const newActual = parseFloat(document.getElementById('modalActualInput').value);
+      const override = document.getElementById('modalStatusOverride').value;
+      const notes = document.getElementById('modalNotesInput').value.trim();
+
+      const idx = kpiData.findIndex(k => k.id === kpiId);
+      if (idx !== -1 && !isNaN(newActual)) {
+        const oldVal = formatValue(kpiData[idx].actual, kpiData[idx].unit);
+        const newValFmt = formatValue(newActual, kpiData[idx].unit);
+        kpiData[idx].actual = newActual;
+        kpiData[idx].manualStatus = override;
+        kpiData[idx].verificationStatus = 'Pending Approval';
+        if (notes) kpiData[idx].notes = notes;
+
+        addAuditEntry(
+          'KPI Updated',
+          `${kpiId} (${kpiData[idx].name})`,
+          `Actual: ${oldVal} -> ${newValFmt}. Evidence: ${notes || 'Custodian quarterly return.'}`,
+          'Pending Approval'
+        );
+        refreshAllViews();
+        closeKpiModal();
+        showToast(`KPI ${kpiId} updated (${oldVal} -> ${newValFmt}) and queued for Management Verification.`);
+      }
+    }
+
+    function openMgmtModal(kpiId) {
+      if (activeRole !== 'management') {
+        showToast('Access Restricted: Only Tier 2 University Management can verify or issue directives.');
+        return;
+      }
+      const kpi = kpiData.find(k => k.id === kpiId);
+      if (!kpi) return;
+      const { yearKey } = getSelectedPeriodInfo();
+      const variance = parseFloat(calculatePeriodVariance(kpi, yearKey));
+
+      document.getElementById('mgmtKpiId').value = kpi.id;
+      document.getElementById('mgmtKpiCode').textContent = `${kpi.goal} • ${kpi.id}`;
+      document.getElementById('mgmtKpiTitle').textContent = kpi.name;
+      document.getElementById('mgmtPeriodTarget').textContent = formatValue(kpi[yearKey], kpi.unit);
+      document.getElementById('mgmtReportedActual').textContent = formatValue(kpi.actual, kpi.unit);
+      document.getElementById('mgmtCurrentVerify').textContent = kpi.verificationStatus;
+      document.getElementById('mgmtCustodianNotes').textContent = kpi.notes || 'No custodian notes provided.';
+      document.getElementById('mgmtDirectiveInput').value = kpi.managementDirective || '';
+
+      const varBadge = document.getElementById('mgmtKpiVarianceBadge');
+      if (variance < -10) {
+        varBadge.className = 'px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-700 font-extrabold text-[10px]';
+        varBadge.textContent = `ALERT: ${variance}% (>10% Off-Target)`;
+      } else {
+        varBadge.className = 'px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-700 font-bold text-[10px]';
+        varBadge.textContent = `Variance: ${variance > 0 ? '+' : ''}${variance}%`;
+      }
+
+      document.getElementById('mgmtReviewModal').classList.remove('hidden');
+    }
+
+    function closeMgmtModal() {
+      document.getElementById('mgmtReviewModal').classList.add('hidden');
+    }
+
+    function submitManagementAction(e) {
+      e.preventDefault();
+      if (activeRole !== 'management') return;
+      const kpiId = document.getElementById('mgmtKpiId').value;
+      const decision = document.getElementById('mgmtDecisionSelect').value;
+      const directive = document.getElementById('mgmtDirectiveInput').value.trim();
+
+      const idx = kpiData.findIndex(k => k.id === kpiId);
+      if (idx !== -1) {
+        kpiData[idx].verificationStatus = decision === 'Returned to Custodian' ? 'Pending Approval' : 'Verified';
+        kpiData[idx].managementDirective = directive;
+
+        addAuditEntry(
+          `Management: ${decision}`,
+          `${kpiId} (${kpiData[idx].name})`,
+          `Directive: ${directive}`,
+          kpiData[idx].verificationStatus
+        );
+        refreshAllViews();
+        closeMgmtModal();
+        showToast(`Executive sign-off recorded for ${kpiId} (${decision}).`);
+      }
+    }
+
+    function openCollegeModal(preselectedCode = null) {
+      if (activeRole !== 'planner') {
+        showToast('Access Restricted: Only Tier 1 Planners & College Focal Points can submit AOP returns.');
+        return;
+      }
+      if (isWindowLocked) {
+        showToast('Reporting Window LOCKED: Unlock the quarterly cycle in Governance tab to edit.');
+        return;
+      }
+      const select = document.getElementById('modalCollegeSelect');
+      select.innerHTML = collegeData.map(c => `<option value="${c.code}">${c.code} — ${c.name}</option>`).join('');
+      if (preselectedCode) select.value = preselectedCode;
+      loadCollegeModalData();
+      document.getElementById('collegeModal').classList.remove('hidden');
+    }
+
+    function closeCollegeModal() {
+      document.getElementById('collegeModal').classList.add('hidden');
+    }
+
+    function loadCollegeModalData() {
+      const code = document.getElementById('modalCollegeSelect').value;
+      const col = collegeData.find(c => c.code === code);
+      if (!col) return;
+      document.getElementById('modalCollegeEnrolment').value = col.enrolment;
+      document.getElementById('modalCollegePhd').value = col.phdPct;
+      document.getElementById('modalCollegeAop').value = col.aopExecution;
+      document.getElementById('modalCollegePanel').value = col.industryPanel;
+    }
+
+    function saveCollegeReturn(e) {
+      e.preventDefault();
+      if (activeRole !== 'planner' || isWindowLocked) return;
+      const code = document.getElementById('modalCollegeSelect').value;
+      const idx = collegeData.findIndex(c => c.code === code);
+      if (idx !== -1) {
+        collegeData[idx].enrolment = parseInt(document.getElementById('modalCollegeEnrolment').value, 10);
+        collegeData[idx].phdPct = parseFloat(document.getElementById('modalCollegePhd').value);
+        collegeData[idx].aopExecution = parseInt(document.getElementById('modalCollegeAop').value, 10);
+        collegeData[idx].industryPanel = document.getElementById('modalCollegePanel').value;
+        collegeData[idx].endorsementStatus = 'Pending Endorsement';
+
+        addAuditEntry(
+          'College Return Submitted',
+          `${code} (Annex C.3 AOP Return)`,
+          `Enrolment: ${collegeData[idx].enrolment} | PhD: ${collegeData[idx].phdPct}% | AOP: ${collegeData[idx].aopExecution}%`,
+          'Pending Approval'
+        );
+        renderColleges();
+        renderGovernance();
+        closeCollegeModal();
+        showToast(`Annex C.3 Quarterly AOP Return recorded for ${code} and queued for Principal/DVC endorsement.`);
+      }
+    }
+
+    function exportToCSV() {
+      const { yearKey, label } = getSelectedPeriodInfo();
+      const headers = ['M&E ID', 'Goal', 'KPI Name', 'Unit', '2024/25 Baseline', '2026/27 Target', '2027/28 Mid-Term', '2029/30 End Target', 'Current Actual', 'Variance (%)', 'RAG Status', 'Verification Status', 'Responsible Unit', 'Management Directive'];
+      const rows = kpiData.map(k => [
+        k.id,
+        k.goal,
+        `"${k.name.replace(/"/g, '""')}"`,
+        k.unit,
+        k.baseline,
+        k.y26_27,
+        k.y27_28,
+        k.y29_30,
+        k.actual,
+        calculatePeriodVariance(k, yearKey),
+        evaluateKpiStatus(k, yearKey),
+        k.verificationStatus,
+        `"${k.owner}"`,
+        `"${(k.managementDirective || '').replace(/"/g, '""')}"`
+      ]);
+
+      const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', `UR_Strategic_Plan_2025_2030_ME_Scorecard_${yearKey}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast(`Exported Master KPI Scorecard CSV (${label}).`);
+    }
+
+    // -------------------------------------------------------------------------
+    // 11. HEAD OFFICE & COLLEGE CUSTODIAN JSON EXPORT / MERGE SYNC ENGINE
+    // -------------------------------------------------------------------------
+    let stagedMergePayloads = [];
+
+    function openSyncHubModal() {
+      if (activeRole !== 'planner') {
+        showToast('Access Restricted: Only Tier 1 Planners & Head Office M&E Specialist can export/merge JSON returns.');
+        return;
+      }
+      const { label } = getSelectedPeriodInfo();
+      document.getElementById('syncCurrentCycleLabel').textContent = `Cycle: ${label}`;
+      if (selectedCollegeTile !== 'ALL') {
+        document.getElementById('syncSourceEntitySelect').value = selectedCollegeTile;
+      } else {
+        document.getElementById('syncSourceEntitySelect').value = 'HQ_ME_MASTER';
+      }
+      stagedMergePayloads = [];
+      document.getElementById('custodianJsonFileInput').value = '';
+      document.getElementById('jsonFileSelectedLabel').textContent = 'Select one or more .json return files...';
+      document.getElementById('mergePreviewContainer').classList.add('hidden');
+      document.getElementById('syncHubModal').classList.remove('hidden');
+    }
+
+    function closeSyncHubModal() {
+      document.getElementById('syncHubModal').classList.add('hidden');
+    }
+
+    function exportCustodianJson() {
+      if (activeRole !== 'planner') return;
+      const entity = document.getElementById('syncSourceEntitySelect').value;
+      const { yearKey, quarter, label } = getSelectedPeriodInfo();
+      const nowIso = new Date().toISOString();
+
+      // If a specific college is selected, export that college's Annex C.3 record + any modified KPIs;
+      // If HQ_ME_MASTER is selected, export the full consolidated state.
+      const exportedColleges = entity === 'HQ_ME_MASTER'
+        ? collegeData
+        : collegeData.filter(c => c.code === entity);
+
+      const payload = {
+        schemaVersion: 'UR_SP_2025_2030_ME_SYNC_V1',
+        exportedAt: nowIso,
+        sourceEntity: entity,
+        reportingPeriod: { yearKey, quarter, label },
+        isWindowLocked,
+        kpis: kpiData,
+        colleges: exportedColleges,
+        projects: projectData,
+        auditLogs: auditLogs.slice(0, 25)
+      };
+
+      const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(payload, null, 2));
+      const dlAnchor = document.createElement('a');
+      const dateStamp = nowIso.slice(0, 10);
+      dlAnchor.setAttribute('href', dataStr);
+      dlAnchor.setAttribute('download', `UR_SP_ME_Return_${entity}_${yearKey}_${quarter}_${dateStamp}.json`);
+      document.body.appendChild(dlAnchor);
+      dlAnchor.click();
+      document.body.removeChild(dlAnchor);
+
+      addAuditEntry(
+        'JSON Package Exported',
+        `${entity} (${label})`,
+        `Exported standardized M&E return file for Microsoft Teams / SharePoint consolidation.`,
+        'Verified'
+      );
+      renderGovernance();
+      showToast(`Exported ${entity} JSON package for Microsoft Teams / SharePoint.`);
+    }
+
+    function previewMergePackages(event) {
+      const files = Array.from(event.target.files || []);
+      if (files.length === 0) return;
+
+      stagedMergePayloads = [];
+      const previewList = document.getElementById('mergePreviewList');
+      previewList.innerHTML = '';
+      document.getElementById('jsonFileSelectedLabel').textContent = `${files.length} file(s) selected`;
+
+      let processedCount = 0;
+      files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          try {
+            const parsed = JSON.parse(e.target.result);
+            if (parsed && parsed.schemaVersion === 'UR_SP_2025_2030_ME_SYNC_V1') {
+              stagedMergePayloads.push({ fileName: file.name, data: parsed });
+              const li = document.createElement('li');
+              li.innerHTML = `<strong class="text-white">${file.name}</strong> — Source: <span class="text-sky-400 font-bold">${parsed.sourceEntity}</span> (${parsed.colleges.length} College record(s), ${parsed.kpis.length} KPIs)`;
+              previewList.appendChild(li);
+            } else {
+              const li = document.createElement('li');
+              li.innerHTML = `<span class="text-rose-400 font-bold">${file.name}</span> — Invalid schema format (skipped).`;
+              previewList.appendChild(li);
+            }
+          } catch (err) {
+            const li = document.createElement('li');
+            li.innerHTML = `<span class="text-rose-400 font-bold">${file.name}</span> — Corrupt JSON file (skipped).`;
+            previewList.appendChild(li);
+          }
+          processedCount++;
+          if (processedCount === files.length) {
+            document.getElementById('mergePreviewSummary').textContent = `${stagedMergePayloads.length} valid package(s)`;
+            document.getElementById('mergePreviewContainer').classList.remove('hidden');
+          }
+        };
+        reader.readAsText(file);
+      });
+    }
+
+    function executeMasterJsonMerge() {
+      if (activeRole !== 'planner' || stagedMergePayloads.length === 0) return;
+      if (isWindowLocked) {
+        showToast('Reporting Window LOCKED: Unlock the quarterly cycle before merging returns.');
+        return;
+      }
+
+      let updatedKpiCount = 0;
+      let updatedCollegeCount = 0;
+      let updatedProjCount = 0;
+      const mergedEntities = [];
+
+      stagedMergePayloads.forEach(pkg => {
+        const d = pkg.data;
+        mergedEntities.push(d.sourceEntity);
+
+        // 1. Merge Colleges (Annex C.3)
+        if (Array.isArray(d.colleges)) {
+          d.colleges.forEach(incomingCol => {
+            const cIdx = collegeData.findIndex(c => c.code === incomingCol.code);
+            if (cIdx !== -1) {
+              collegeData[cIdx] = { ...collegeData[cIdx], ...incomingCol };
+              updatedCollegeCount++;
+            }
+          });
+        }
+
+        // 2. Merge KPIs (Update actuals & notes where changed from default/existing)
+        if (Array.isArray(d.kpis)) {
+          d.kpis.forEach(incomingKpi => {
+            const kIdx = kpiData.findIndex(k => k.id === incomingKpi.id);
+            if (kIdx !== -1) {
+              const currentKpi = kpiData[kIdx];
+              // Apply incoming changes if actual, notes, or verification status was updated
+              if (
+                incomingKpi.actual !== currentKpi.actual ||
+                incomingKpi.notes !== currentKpi.notes ||
+                incomingKpi.verificationStatus !== currentKpi.verificationStatus ||
+                incomingKpi.managementDirective !== currentKpi.managementDirective
+              ) {
+                kpiData[kIdx] = { ...currentKpi, ...incomingKpi };
+                updatedKpiCount++;
+              }
+            }
+          });
+        }
+
+        // 3. Merge Priority Projects
+        if (Array.isArray(d.projects)) {
+          d.projects.forEach(incomingProj => {
+            const pIdx = projectData.findIndex(p => p.id === incomingProj.id);
+            if (pIdx !== -1 && (incomingProj.status !== projectData[pIdx].status || incomingProj.stage !== projectData[pIdx].stage)) {
+              projectData[pIdx] = { ...projectData[pIdx], ...incomingProj };
+              updatedProjCount++;
+            }
+          });
+        }
+
+        // 4. Deduplicate & Merge Audit Logs
+        if (Array.isArray(d.auditLogs)) {
+          d.auditLogs.forEach(incomingLog => {
+            const exists = auditLogs.some(l => l.timestamp === incomingLog.timestamp && l.entity === incomingLog.entity && l.action === incomingLog.action);
+            if (!exists) {
+              auditLogs.push(incomingLog);
+            }
+          });
+        }
+      });
+
+      // Sort audit logs newest first
+      auditLogs.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+
+      addAuditEntry(
+        'Master JSON Merge Completed',
+        `Merged ${stagedMergePayloads.length} Return(s): ${[...new Set(mergedEntities)].join(', ')}`,
+        `Consolidated ${updatedCollegeCount} College return(s), ${updatedKpiCount} KPI update(s), and ${updatedProjCount} Project milestone(s).`,
+        'Verified'
+      );
+
+      refreshAllViews();
+      closeSyncHubModal();
+      showToast(`Merged ${stagedMergePayloads.length} package(s): ${updatedCollegeCount} College(s) & ${updatedKpiCount} KPI(s) updated.`);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotification');
+      document.getElementById('toastMessage').textContent = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3800);
+    }
+
+    function refreshAllViews() {
+      renderOverview();
+      renderMasterKpiTable();
+      renderColleges();
+      renderProjects();
+      renderGovernance();
+    }
+
+    window.onload = function () {
+      loadInitialState();
+      applyRolePermissions();
+      refreshAllViews();
+    };
+  </script>
+</body>
+</html>
